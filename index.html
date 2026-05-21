@@ -7,204 +7,364 @@
 <style>
 :root{
   --bg:#0f1117;--bg2:#181c27;--bg3:#1e2333;
-  --border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.15);
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.14);
   --text:#e8eaf0;--text2:#8b93a8;--text3:#4a5168;
-  --accent:#4f8ef7;--accent-bg:rgba(79,142,247,0.12);--accent-b:rgba(79,142,247,0.35);
-  --green:#36c97e;--amber:#f0a428;--red:#f05454;
-  --red-bg:rgba(240,84,84,0.1);--amber-bg:rgba(240,164,40,0.1);
+  --accent:#4f8ef7;--accent-bg:rgba(79,142,247,0.1);--accent-b:rgba(79,142,247,0.3);
+  --green:#36c97e;--green-bg:rgba(54,201,126,0.1);
+  --amber:#f0a428;--amber-bg:rgba(240,164,40,0.1);
+  --red:#f05454;--red-bg:rgba(240,84,84,0.1);
   --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
   --mono:'SF Mono','Cascadia Code','Consolas','Courier New',monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13px;line-height:1.5}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13px;line-height:1.5;min-height:100vh}
 
-header{
-  position:sticky;top:0;z-index:100;
-  background:rgba(15,17,23,0.92);
-  border-bottom:1px solid var(--border);
-  backdrop-filter:blur(12px);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 20px;height:48px;
-}
+header{position:sticky;top:0;z-index:100;background:rgba(15,17,23,0.95);border-bottom:1px solid var(--border);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:48px}
 .logo{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.02em}
 .logo-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 6px var(--accent)}
 .hbadge{font-family:var(--mono);font-size:10px;color:var(--text3);border:1px solid var(--border);padding:3px 8px;border-radius:4px}
 
-.layout{display:grid;grid-template-columns:300px 1fr;gap:16px;padding:16px;max-width:1200px;margin:0 auto;align-items:start}
-@media(max-width:800px){.layout{grid-template-columns:1fr}}
+.disclaimer{background:rgba(240,164,40,0.08);border:1px solid rgba(240,164,40,0.25);border-radius:8px;padding:10px 14px;margin:12px 16px 0;font-size:11px;color:var(--amber);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+.disclaimer strong{color:var(--amber)}
 
-.panel{background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden}
-.ph{padding:10px 14px;border-bottom:1px solid var(--border);font-family:var(--mono);font-size:10px;font-weight:600;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:6px}
+.layout{display:grid;grid-template-columns:310px 1fr;gap:14px;padding:14px 16px 40px;max-width:1280px;margin:0 auto;align-items:start}
+@media(max-width:860px){.layout{grid-template-columns:1fr}}
+
+.panel{background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:12px}
+.panel:last-child{margin-bottom:0}
+.ph{padding:9px 13px;border-bottom:1px solid var(--border);font-family:var(--mono);font-size:10px;font-weight:700;color:var(--text3);letter-spacing:.09em;text-transform:uppercase;display:flex;align-items:center;gap:6px}
 .ph .d{width:5px;height:5px;border-radius:50%;background:var(--accent)}
-.pb{padding:14px}
+.pb{padding:13px}
 
-.fl{margin-bottom:12px}
-.fl-label{font-size:11px;font-weight:600;color:var(--text2);margin-bottom:4px;display:flex;align-items:center;gap:5px;letter-spacing:.02em}
-.badge{font-size:9px;padding:1px 5px;border-radius:3px;font-family:var(--mono);font-weight:600}
+.fl{margin-bottom:11px}
+.fl-label{font-size:11px;font-weight:600;color:var(--text2);margin-bottom:4px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.badge{font-size:9px;padding:1px 5px;border-radius:3px;font-family:var(--mono);font-weight:700}
 .bv{background:var(--amber-bg);color:var(--amber);border:1px solid rgba(240,164,40,.2)}
 .bf{background:rgba(100,110,130,.1);color:var(--text2);border:1px solid var(--border)}
 .bt{background:var(--red-bg);color:var(--red);border:1px solid rgba(240,84,84,.2)}
+.bg{background:var(--green-bg);color:var(--green);border:1px solid rgba(54,201,126,.2)}
 
-input[type=number],select{
-  width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:6px;
-  color:var(--text);font-family:var(--mono);font-size:12px;padding:6px 9px;outline:none;
-  transition:border-color .15s;-moz-appearance:textfield;appearance:textfield
-}
+input[type=number],select{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:var(--mono);font-size:12px;padding:6px 9px;outline:none;transition:border-color .15s;-moz-appearance:textfield;appearance:textfield}
 input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none}
 input:focus,select:focus{border-color:var(--accent)}
+select option{background:var(--bg2)}
 
-.sec{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin:14px 0 8px;padding-bottom:5px;border-bottom:1px solid var(--border)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pctw{display:flex;align-items:center;gap:5px}
+.pctw input{width:72px}
+.pctl{font-family:var(--mono);font-size:11px;color:var(--text3)}
+
+.sec{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin:14px 0 8px;padding-bottom:5px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:6px}
 
 .igrid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:10px}
-.itab{background:var(--bg3);border:1px solid var(--border);border-radius:5px;color:var(--text2);font-family:var(--mono);font-size:11px;font-weight:600;padding:6px 2px;text-align:center;cursor:pointer;transition:all .15s;width:100%}
+.itab{background:var(--bg3);border:1px solid var(--border);border-radius:5px;color:var(--text2);font-family:var(--mono);font-size:11px;font-weight:700;padding:6px 2px;text-align:center;cursor:pointer;transition:all .15s;width:100%}
 .itab:hover{border-color:var(--border2);color:var(--text)}
 .itab.active{background:var(--accent-bg);border-color:var(--accent);color:var(--accent)}
 
 .rbar{display:flex;height:18px;border-radius:4px;overflow:hidden;border:1px solid var(--border);margin:6px 0}
-.be{background:rgba(79,142,247,.22);display:flex;align-items:center;justify-content:center;font-size:9px;font-family:var(--mono);color:var(--accent);transition:width .4s;white-space:nowrap;overflow:hidden}
-.bi{background:rgba(54,201,126,.18);display:flex;align-items:center;justify-content:center;font-size:9px;font-family:var(--mono);color:var(--green);transition:width .4s;white-space:nowrap;overflow:hidden}
+.be{background:rgba(79,142,247,.2);display:flex;align-items:center;justify-content:center;font-size:9px;font-family:var(--mono);color:var(--accent);transition:width .4s;white-space:nowrap;overflow:hidden}
+.bi{background:rgba(54,201,126,.16);display:flex;align-items:center;justify-content:center;font-size:9px;font-family:var(--mono);color:var(--green);transition:width .4s;white-space:nowrap;overflow:hidden}
 .bleg{display:flex;gap:12px;font-size:10px;color:var(--text3);margin-top:4px}
 .ld{width:8px;height:8px;border-radius:2px;display:inline-block;margin-right:3px;vertical-align:middle}
 
 .iexpl{background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:8px 10px;font-size:11px;color:var(--text2);line-height:1.6;margin-top:6px}
 .iexpl strong{color:var(--text)}
 
-.pctw{display:flex;align-items:center;gap:5px}
-.pctw input{width:70px}
-.pctl{font-family:var(--mono);font-size:11px;color:var(--text3)}
+.alert{background:rgba(240,84,84,0.08);border:1px solid rgba(240,84,84,0.2);border-radius:6px;padding:8px 10px;font-size:11px;color:var(--red);margin-top:6px;display:none}
+.alert-green{background:var(--green-bg);border:1px solid rgba(54,201,126,.2);color:var(--green)}
+.alert-amber{background:var(--amber-bg);border:1px solid rgba(240,164,40,.2);color:var(--amber)}
 
-/* right side */
+/* right */
 .rside{display:flex;flex-direction:column;gap:12px}
-
 .mrow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .mc{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px 14px}
 .mc.acc{border-color:var(--accent-b);background:var(--accent-bg)}
 .mc.red{border-color:rgba(240,84,84,.25);background:var(--red-bg)}
 .ml{font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:5px}
-.mv{font-size:18px;font-weight:700;font-family:var(--mono);color:var(--text)}
+.mv{font-size:17px;font-weight:700;font-family:var(--mono);color:var(--text)}
 .mc.acc .mv{color:var(--accent)}
 .mc.red .mv{color:var(--red)}
 .ms{font-size:10px;color:var(--text3);margin-top:2px;font-family:var(--mono)}
 
 table{width:100%;border-collapse:collapse}
-th{font-family:var(--mono);font-size:10px;font-weight:600;color:var(--text3);text-align:left;padding:6px 10px;border-bottom:1px solid var(--border);letter-spacing:.07em;text-transform:uppercase}
+th{font-family:var(--mono);font-size:10px;font-weight:700;color:var(--text3);text-align:left;padding:6px 10px;border-bottom:1px solid var(--border);letter-spacing:.07em;text-transform:uppercase}
 th:nth-child(2),th:nth-child(3){text-align:right}
 td{font-size:11px;padding:5px 10px;border-bottom:1px solid var(--border);color:var(--text2);font-family:var(--mono)}
 tr:last-child td{border-bottom:none}
 tr:hover td{background:rgba(255,255,255,.015)}
 td.nm{color:var(--text);font-family:var(--sans);font-size:12px}
 td.z{color:var(--text3);text-decoration:line-through}
-td.znm{color:var(--text3);font-family:var(--sans);font-size:12px}
+td.znm{color:var(--text3);font-family:var(--sans);font-size:12px;text-decoration:line-through}
 td:nth-child(2),td:nth-child(3){text-align:right}
 
 tr.sr td{padding-top:8px;padding-bottom:3px;font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.09em;border-bottom:none;font-family:var(--mono);background:transparent}
-tr.var{background:rgba(240,164,40,.05)}
-tr.var td{color:var(--amber);border-top:1px solid rgba(240,164,40,.15);border-bottom:1px solid rgba(240,164,40,.15)}
+tr.var-row{background:rgba(240,164,40,.05)}
+tr.var-row td{color:var(--amber);border-top:1px solid rgba(240,164,40,.15);border-bottom:1px solid rgba(240,164,40,.15)}
 tr.sub td{font-weight:700;color:var(--text);font-size:12px;border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);padding:7px 10px;background:rgba(255,255,255,.02)}
 tr.tot td{font-weight:700;color:var(--accent);font-family:var(--mono);font-size:13px;padding:9px 10px;border-top:2px solid var(--accent-b)}
+tr.trib-sub td{background:rgba(240,84,84,.04);color:var(--red);font-weight:600;font-size:11px;border-top:1px solid rgba(240,84,84,.15);border-bottom:1px solid rgba(240,84,84,.15)}
 
-.ebox{background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:10px 13px;font-size:11px;color:var(--text2);line-height:1.7}
+.ebox{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:11px;color:var(--text2);line-height:1.75}
 .ebox strong{color:var(--text)}
 .ebox .hi{color:var(--accent);font-family:var(--mono)}
+.ebox .warn{color:var(--amber)}
 
-footer{text-align:center;padding:20px;font-size:10px;color:var(--text3);font-family:var(--mono);border-top:1px solid var(--border);margin-top:16px}
+.sim-warn{background:rgba(240,164,40,0.07);border:1px solid rgba(240,164,40,0.2);border-radius:8px;padding:10px 13px;font-size:11px;color:var(--amber);line-height:1.6;text-align:center}
+
+footer{text-align:center;padding:16px;font-size:10px;color:var(--text3);font-family:var(--mono);border-top:1px solid var(--border)}
 </style>
 </head>
 <body>
+
 <header>
   <div class="logo"><div class="logo-dot"></div>COMEX · Incoterms Calculator</div>
-  <div class="hbadge">IBMEC · Comércio Exterior</div>
+  <div class="hbadge">IBMEC · Comércio Exterior · 2025</div>
 </header>
 
+<div class="disclaimer">
+  ⚠️ <span><strong>Simulação educacional.</strong> Esta ferramenta é uma estimativa de custos de importação para fins de estudo. Não substitui validação com despachante aduaneiro, contador ou especialista em COMEX. Alíquotas e taxas podem variar. Consulte sempre a Receita Federal e a legislação vigente.</span>
+</div>
+
 <div class="layout">
+
+<!-- ESQUERDA -->
 <div>
   <div class="panel">
-    <div class="ph"><div class="d"></div>Parâmetros</div>
+    <div class="ph"><div class="d"></div>Operação</div>
     <div class="pb">
+      <div class="sec">Câmbio e modal</div>
+      <div class="grid2">
+        <div class="fl"><div class="fl-label">Câmbio USD/BRL</div><input type="number" id="cambio" value="5.80" step="0.01" min="1" oninput="calc()"></div>
+        <div class="fl"><div class="fl-label">Modal <span class="badge bv">impacta AFRMM</span></div>
+          <select id="modal" onchange="calc()">
+            <option value="maritimo">Marítimo</option>
+            <option value="aereo">Aéreo</option>
+            <option value="rodoviario">Rodoviário / Outros</option>
+          </select>
+        </div>
+      </div>
 
-      <div class="sec">Geral</div>
-      <div class="fl"><div class="fl-label">Câmbio USD/BRL</div><input type="number" id="cambio" value="5.80" step="0.01" min="1" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">Modal</div><select id="modal" onchange="calc()"><option value="maritimo">Marítimo</option><option value="aereo">Aéreo</option><option value="rodoviario">Rodoviário</option></select></div>
-      <div class="fl"><div class="fl-label">Regime</div><select id="regime" onchange="calc()"><option value="consumo">Importação para consumo</option><option value="drawback">Drawback</option><option value="recof">RECOF</option></select></div>
+      <div class="fl">
+        <div class="fl-label">UF de destino <span class="badge bt">impacta ICMS</span></div>
+        <select id="uf" onchange="calc()">
+          <option value="SP">SP — 18%</option>
+          <option value="RJ">RJ — 20%</option>
+          <option value="MG">MG — 18%</option>
+          <option value="RS">RS — 18%</option>
+          <option value="PR">PR — 18%</option>
+          <option value="SC">SC — 17%</option>
+          <option value="BA">BA — 19%</option>
+          <option value="GO">GO — 17%</option>
+          <option value="DF">DF — 20%</option>
+          <option value="CE">CE — 18%</option>
+          <option value="PE">PE — 18%</option>
+          <option value="AM">AM — 20%</option>
+          <option value="PA">PA — 17%</option>
+          <option value="MT">MT — 17%</option>
+          <option value="MS">MS — 17%</option>
+          <option value="ES">ES — 17%</option>
+          <option value="outro">Outra — informar manualmente</option>
+        </select>
+      </div>
+      <div class="fl" id="icms-manual-wrap" style="display:none">
+        <div class="fl-label">Alíquota ICMS manual (%)</div>
+        <div class="pctw"><input type="number" id="p_icms_manual" value="18" step="0.5" min="0" max="30" oninput="calc()"><span class="pctl">%</span></div>
+      </div>
 
-      <div class="sec">Incoterm</div>
+      <div class="fl">
+        <div class="fl-label">Regime aduaneiro <span class="badge bg">impacta tributos</span></div>
+        <select id="regime" onchange="calc()">
+          <option value="consumo">Importação para consumo</option>
+          <option value="drawback">Drawback (suspensão/isenção)</option>
+          <option value="recof">RECOF</option>
+          <option value="repetro">REPETRO</option>
+        </select>
+      </div>
+      <div id="regime-alert" class="alert alert-green"></div>
+
+      <div class="sec">Nº de adições (Siscomex)</div>
+      <div class="fl">
+        <div class="fl-label">Quantidade de adições na DI/Duimp <span class="badge bf">afeta taxa</span></div>
+        <input type="number" id="n_adicoes" value="1" min="1" max="999" step="1" oninput="calc()">
+        <div style="font-size:10px;color:var(--text3);margin-top:4px">R$ 115,67 por DI + R$ 38,56 (1ª-2ª adição), R$ 19,28 (3ª-7ª), R$ 9,64 (8ª+)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="ph"><div class="d"></div>Incoterm</div>
+    <div class="pb">
       <div class="igrid" id="tabs"></div>
       <div class="rbar"><div class="be" id="be"></div><div class="bi" id="bi"></div></div>
-      <div class="bleg"><span><span class="ld" style="background:rgba(79,142,247,.4)"></span>Exportador</span><span><span class="ld" style="background:rgba(54,201,126,.4)"></span>Importador</span></div>
+      <div class="bleg">
+        <span><span class="ld" style="background:rgba(79,142,247,.4)"></span>Exportador</span>
+        <span><span class="ld" style="background:rgba(54,201,126,.4)"></span>Importador</span>
+      </div>
       <div id="iexpl" class="iexpl"></div>
+      <div id="inco-alert" class="alert alert-amber" style="margin-top:6px"></div>
+    </div>
+  </div>
 
-      <div class="sec">Custos (USD) <span class="badge bv">variáveis</span></div>
-      <div class="fl"><div class="fl-label">Valor da Mercadoria</div><input type="number" id="v_merc" value="100000" step="1000" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">Frete Internacional</div><input type="number" id="v_fi" value="3500" step="100" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">Seguro Internacional</div><input type="number" id="v_seg" value="800" step="50" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">THC (origem)</div><input type="number" id="v_thc" value="350" step="50" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">Armazenagem (origem)</div><input type="number" id="v_ao" value="0" step="50" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">Despachante na origem</div><input type="number" id="v_do" value="300" step="50" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">Frete interno / pré-embarque</div><input type="number" id="v_fp" value="400" step="100" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">Capatazia (embarque)</div><input type="number" id="v_cap" value="200" step="50" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">Carregamento</div><input type="number" id="v_car" value="150" step="50" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">ATA — armazenagem + capatazia</div><input type="number" id="v_ata" value="0" step="50" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">Armazenagem 1 (arm1)</div><input type="number" id="v_a1" value="300" step="50" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">Armazenagem 2 (arm2)</div><input type="number" id="v_a2" value="150" step="50" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">Armazenagem 3 (arm3)</div><input type="number" id="v_a3" value="0" step="50" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">THC 2 (destino)</div><input type="number" id="v_thc2" value="250" step="50" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">Liberação de Documentos</div><input type="number" id="v_ld" value="200" step="50" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">SISCARGA <span class="badge bf">fixo</span></div><input type="number" id="v_sc" value="50" step="10" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">SISCOMEX <span class="badge bf">fixo</span></div><input type="number" id="v_sx" value="40" step="10" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">Despachante Aduaneiro</div><input type="number" id="v_da" value="800" step="50" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">Trânsito Aduaneiro</div><input type="number" id="v_ta" value="0" step="50" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">Desembaraço</div><input type="number" id="v_des" value="300" step="50" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">Multa</div><input type="number" id="v_mul" value="0" step="50" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">G/S — Guarda e Segurança</div><input type="number" id="v_gs" value="100" step="50" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">Despesas Operacionais</div><input type="number" id="v_op" value="250" step="50" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">Banco / IOF</div><input type="number" id="v_iof" value="0" step="50" oninput="calc()"></div>
-      <div class="fl"><div class="fl-label">Frete Interno (destino final)</div><input type="number" id="v_fd" value="1200" step="100" oninput="calc()"></div>
+  <div class="panel">
+    <div class="ph"><div class="d"></div>Valores da operação (USD)</div>
+    <div class="pb">
 
-      <div class="sec">Alíquotas <span class="badge bt">tributos</span></div>
+      <div class="sec">Preço e logística internacional</div>
+      <div class="fl">
+        <div class="fl-label">Valor da Mercadoria (EXW / preço de fábrica) <span class="badge bv">variável</span></div>
+        <input type="number" id="v_merc" value="100000" step="1000" oninput="calc()">
+      </div>
+      <div class="fl" id="fi-wrap">
+        <div class="fl-label">Frete Internacional <span class="badge bv">variável</span> <span id="fi-who" class="badge"></span></div>
+        <input type="number" id="v_fi" value="3500" step="100" oninput="calc()">
+      </div>
+      <div class="fl" id="seg-wrap">
+        <div class="fl-label">Seguro Internacional <span class="badge bv">variável</span> <span id="seg-who" class="badge"></span></div>
+        <input type="number" id="v_seg" value="800" step="50" oninput="calc()">
+      </div>
+
+      <div id="va-preview" style="background:var(--amber-bg);border:1px solid rgba(240,164,40,.2);border-radius:6px;padding:7px 10px;font-size:11px;margin-bottom:10px;font-family:var(--mono)">
+        <span style="color:var(--text3)">VA = </span><span id="va-formula" style="color:var(--amber)">—</span>
+      </div>
+
+      <div class="sec">Custos de embarque (origem)</div>
+      <div class="fl"><div class="fl-label">THC / manuseio porto origem <span id="thc-who" class="badge"></span></div><input type="number" id="v_thc" value="350" step="50" oninput="calc()"></div>
+      <div class="fl"><div class="fl-label">Armazenagem (origem) <span class="badge bv">variável</span></div><input type="number" id="v_ao" value="0" step="50" oninput="calc()"></div>
+      <div class="fl"><div class="fl-label">Despachante na origem <span id="do-who" class="badge"></span></div><input type="number" id="v_do" value="300" step="50" oninput="calc()"></div>
+      <div class="fl"><div class="fl-label">Frete interno / pré-embarque <span id="fp-who" class="badge"></span></div><input type="number" id="v_fp" value="400" step="100" oninput="calc()"></div>
+      <div class="fl"><div class="fl-label">Capatazia (embarque) <span id="cap-who" class="badge"></span></div><input type="number" id="v_cap" value="200" step="50" oninput="calc()"></div>
+      <div class="fl"><div class="fl-label">Carregamento <span id="car-who" class="badge"></span></div><input type="number" id="v_car" value="150" step="50" oninput="calc()"></div>
+
+      <div class="sec">Custos no destino (operacionais)</div>
+      <div class="fl"><div class="fl-label">ATA — armazenagem + capatazia <span class="badge bv">variável</span></div><input type="number" id="v_ata" value="0" step="50" oninput="calc()"></div>
+      <div class="fl"><div class="fl-label">Armazenagem 1 (arm1) <span class="badge bv">variável</span></div><input type="number" id="v_a1" value="300" step="50" oninput="calc()"></div>
+      <div class="fl"><div class="fl-label">Armazenagem 2 (arm2) <span class="badge bv">variável</span></div><input type="number" id="v_a2" value="150" step="50" oninput="calc()"></div>
+      <div class="fl"><div class="fl-label">Armazenagem 3 (arm3) <span class="badge bv">variável</span></div><input type="number" id="v_a3" value="0" step="50" oninput="calc()"></div>
+      <div class="fl"><div class="fl-label">THC 2 / destino <span class="badge bv">variável</span></div><input type="number" id="v_thc2" value="250" step="50" oninput="calc()"></div>
+      <div class="fl"><div class="fl-label">Liberação de Documentos <span class="badge bv">variável</span></div><input type="number" id="v_ld" value="200" step="50" oninput="calc()"></div>
+      <div class="fl"><div class="fl-label">Despachante Aduaneiro <span id="da-who" class="badge"></span></div><input type="number" id="v_da" value="800" step="50" oninput="calc()"></div>
+      <div class="fl"><div class="fl-label">Trânsito Aduaneiro <span class="badge bv">variável</span></div><input type="number" id="v_ta" value="0" step="50" oninput="calc()"></div>
+      <div class="fl"><div class="fl-label">Desembaraço <span class="badge bv">variável</span></div><input type="number" id="v_des" value="300" step="50" oninput="calc()"></div>
+      <div class="fl"><div class="fl-label">Multa (se houver) <span class="badge bv">variável</span></div><input type="number" id="v_mul" value="0" step="50" oninput="calc()"></div>
+      <div class="fl"><div class="fl-label">G/S — Guarda e Segurança <span class="badge bv">variável</span></div><input type="number" id="v_gs" value="100" step="50" oninput="calc()"></div>
+      <div class="fl"><div class="fl-label">Despesas Operacionais diversas <span class="badge bv">variável</span></div><input type="number" id="v_op" value="250" step="50" oninput="calc()"></div>
+      <div class="fl"><div class="fl-label">Banco / IOF <span class="badge bv">variável</span></div><input type="number" id="v_iof" value="0" step="50" oninput="calc()"></div>
+      <div class="fl"><div class="fl-label">Frete Interno (destino final) <span class="badge bv">variável</span></div><input type="number" id="v_fd" value="1200" step="100" oninput="calc()"></div>
+
+      <div class="sec">Alíquotas tributárias <span class="badge bt">tributos federais</span></div>
       <div class="fl"><div class="fl-label">II — Imposto de Importação</div><div class="pctw"><input type="number" id="p_ii" value="12" step="0.5" min="0" max="100" oninput="calc()"><span class="pctl">%</span></div></div>
       <div class="fl"><div class="fl-label">IPI</div><div class="pctw"><input type="number" id="p_ipi" value="5" step="0.5" min="0" max="100" oninput="calc()"><span class="pctl">%</span></div></div>
-      <div class="fl"><div class="fl-label">PIS/COFINS</div><div class="pctw"><input type="number" id="p_pc" value="9.25" step="0.25" min="0" max="30" oninput="calc()"><span class="pctl">%</span></div></div>
-      <div class="fl"><div class="fl-label">ICMS</div><div class="pctw"><input type="number" id="p_icms" value="18" step="0.5" min="0" max="30" oninput="calc()"><span class="pctl">%</span></div></div>
+      <div class="fl"><div class="fl-label">PIS/COFINS importação</div><div class="pctw"><input type="number" id="p_pc" value="9.25" step="0.25" min="0" max="30" oninput="calc()"><span class="pctl">%</span></div></div>
     </div>
   </div>
 </div>
 
+<!-- DIREITA -->
 <div class="rside">
   <div class="mrow">
-    <div class="mc acc"><div class="ml">// custo total</div><div class="mv" id="m_tot">—</div><div class="ms" id="m_tot2">—</div></div>
-    <div class="mc red"><div class="ml">// tributos</div><div class="mv" id="m_tri">—</div><div class="ms" id="m_tri2">—</div></div>
+    <div class="mc acc"><div class="ml">// custo total importação</div><div class="mv" id="m_tot">—</div><div class="ms" id="m_tot2">—</div></div>
+    <div class="mc red"><div class="ml">// total tributos</div><div class="mv" id="m_tri">—</div><div class="ms" id="m_tri2">— do total</div></div>
     <div class="mc"><div class="ml">// markup s/ mercadoria</div><div class="mv" id="m_mk">—</div><div class="ms" id="m_va">VA: —</div></div>
   </div>
+
   <div class="panel">
-    <div class="ph"><div class="d"></div>Planilha — visão do importador</div>
-    <table><thead><tr><th>Descrição</th><th>USD</th><th>BRL</th></tr></thead>
-    <tbody id="tbody"></tbody></table>
+    <div class="ph"><div class="d"></div>Planilha — custos tributários</div>
+    <table><thead><tr><th>Descrição</th><th>Base / Obs</th><th>BRL</th></tr></thead>
+    <tbody id="tbody-trib"></tbody></table>
   </div>
+
+  <div class="panel">
+    <div class="ph"><div class="d"></div>Planilha — custos operacionais / logísticos</div>
+    <table><thead><tr><th>Descrição</th><th>USD</th><th>BRL</th></tr></thead>
+    <tbody id="tbody-op"></tbody></table>
+  </div>
+
   <div class="ebox" id="ebox"></div>
+  <div class="sim-warn">⚠️ Simulação educacional — não substitui laudo de despachante, contador ou especialista em COMEX. Valores sujeitos a alteração por NCM, acordos bilaterais e legislação vigente.</div>
 </div>
 </div>
-<footer>COMEX Calculator · IBMEC · Incoterms 2020 · Regulamento Aduaneiro Brasileiro</footer>
+
+<footer>COMEX Calculator · IBMEC · Incoterms 2020 · Regulamento Aduaneiro Brasileiro · Siscomex (Portaria MF 257/2011)</footer>
 
 <script>
+// ICMS por UF (alíquota padrão importação - por dentro)
+const ICMS_UF={SP:18,RJ:20,MG:18,RS:18,PR:18,SC:17,BA:19,GO:17,DF:20,CE:18,PE:18,AM:20,PA:17,MT:17,MS:17,ES:17};
+
+// Incoterms: paga_exp = ids que o exportador paga (importador NÃO paga)
+// va_fi / va_seg: se true, frete/seguro JÁ estão no preço => não entram separado no VA
 const INC={
-  EXW:{f:'Ex Works',e:5,p:[],d:'<strong>EXW:</strong> Vendedor só disponibiliza a mercadoria na fábrica. Importador arca com <em>tudo</em>: frete pré-embarque, despacho de exportação, THC, frete e seguro internacionais e todo processo no Brasil.'},
-  FCA:{f:'Free Carrier',e:20,p:['v_fp','v_do'],d:'<strong>FCA:</strong> Vendedor entrega ao transportador indicado, com exportação desembaraçada. Importador paga frete e seguro internacionais e o processo no destino.'},
-  FAS:{f:'Free Alongside Ship',e:22,p:['v_fp','v_do'],d:'<strong>FAS</strong> (marítimo): Vendedor entrega ao lado do navio no porto. Importador carrega, paga THC, frete e seguro internacionais.'},
-  FOB:{f:'Free On Board',e:35,p:['v_fp','v_cap','v_car','v_do','v_thc'],d:'<strong>FOB:</strong> Vendedor entrega a bordo com exportação desembaraçada. O incoterm mais usado no Brasil. VA = Mercadoria + Frete Int. + Seguro.'},
-  CFR:{f:'Cost and Freight',e:60,p:['v_fp','v_cap','v_car','v_do','v_thc','v_fi'],d:'<strong>CFR:</strong> Vendedor paga frete até o porto de destino, mas o risco passa ao importador no embarque. Importador deve contratar seguro.'},
-  CIF:{f:'Cost Insurance Freight',e:68,p:['v_fp','v_cap','v_car','v_do','v_thc','v_fi','v_seg'],d:'<strong>CIF:</strong> Vendedor paga custo, seguro e frete. 2º mais usado no Brasil. VA (base do II) = Mercadoria + Frete + Seguro.'},
-  CPT:{f:'Carriage Paid To',e:60,p:['v_fp','v_cap','v_car','v_do','v_thc','v_fi'],d:'<strong>CPT:</strong> Equivalente multimodal do CFR. Vendedor paga frete ao destino; risco ao importador no 1º transportador. Importador contrata seguro.'},
-  CIP:{f:'Carriage Insurance Paid',e:68,p:['v_fp','v_cap','v_car','v_do','v_thc','v_fi','v_seg'],d:'<strong>CIP:</strong> Equivalente multimodal do CIF. Incoterms 2020 exige cobertura ampla (ICC A).'},
-  DAP:{f:'Delivered at Place',e:80,p:['v_fp','v_cap','v_car','v_do','v_thc','v_fi','v_seg'],d:'<strong>DAP:</strong> Vendedor entrega no destino sem desembaraço de importação. Importador paga tributos e desembaraço.'},
-  DPU:{f:'Delivered at Place Unloaded',e:82,p:['v_fp','v_cap','v_car','v_do','v_thc','v_fi','v_seg'],d:'<strong>DPU:</strong> Único incoterm em que o vendedor assume o descarregamento. Importador paga tributos e desembaraço.'},
-  DDP:{f:'Delivered Duty Paid',e:98,p:['v_fp','v_cap','v_car','v_do','v_thc','v_fi','v_seg','v_da'],d:'<strong>DDP:</strong> Máxima responsabilidade do vendedor — entrega com todos os custos e tributos pagos.'},
+  EXW:{f:'Ex Works',e:5,
+    paga_exp:[],
+    va_fi:false,va_seg:false,
+    d:'<strong>EXW:</strong> Exportador só disponibiliza a mercadoria na fábrica. O importador arca com <em>absolutamente tudo</em>: embarque, despacho de exportação, frete e seguro internacionais e todo o processo no Brasil. VA = Mercadoria + Frete Internacional + Seguro.',
+    alert:''},
+  FCA:{f:'Free Carrier',e:20,
+    paga_exp:['v_fp','v_do'],
+    va_fi:false,va_seg:false,
+    d:'<strong>FCA:</strong> Exportador entrega ao transportador indicado no local combinado, com exportação desembaraçada. Importador paga frete e seguro internacionais. VA = Mercadoria + Frete Internacional + Seguro.',
+    alert:''},
+  FAS:{f:'Free Alongside Ship',e:22,
+    paga_exp:['v_fp','v_do'],
+    va_fi:false,va_seg:false,
+    d:'<strong>FAS</strong> (marítimo/fluvial): Exportador entrega ao lado do navio no porto de embarque, com exportação desembaraçada. Importador carrega, paga THC, frete e seguro internacionais. VA = Mercadoria + Frete + Seguro.',
+    alert:'Atenção: FAS é exclusivo para transporte marítimo ou fluvial.'},
+  FOB:{f:'Free On Board',e:35,
+    paga_exp:['v_fp','v_cap','v_car','v_do','v_thc'],
+    va_fi:false,va_seg:false,
+    d:'<strong>FOB:</strong> Exportador entrega a bordo no porto de embarque com exportação desembaraçada. Importador contrata e paga frete e seguro internacionais. VA = Mercadoria + Frete Internacional + Seguro. Incoterm mais usado no Brasil.',
+    alert:''},
+  CFR:{f:'Cost and Freight',e:60,
+    paga_exp:['v_fp','v_cap','v_car','v_do','v_thc','v_fi'],
+    va_fi:true,va_seg:false,
+    d:'<strong>CFR:</strong> Exportador paga frete até o porto de destino. O risco passa ao importador no embarque. O frete já está incluído no preço — não some ao VA separadamente. Importador deve contratar e pagar seguro por conta própria. VA = Mercadoria (inclui frete) + Seguro.',
+    alert:'No CFR o frete já está incluído no preço da mercadoria — o campo Frete Internacional indica o valor pago pelo exportador, mas não é adicionado ao VA novamente.'},
+  CIF:{f:'Cost Insurance Freight',e:68,
+    paga_exp:['v_fp','v_cap','v_car','v_do','v_thc','v_fi','v_seg'],
+    va_fi:true,va_seg:true,
+    d:'<strong>CIF:</strong> Exportador paga custo, seguro e frete até o porto de destino. Frete e seguro já estão incluídos no preço. VA = preço CIF (Mercadoria + Frete + Seguro já embutidos). É o 2º incoterm mais usado no Brasil e a base mais comum para cálculo do II.',
+    alert:'No CIF, frete e seguro já estão embutidos no preço. Evite duplicidade: informe o valor CIF total no campo Mercadoria, ou os componentes separados — a calculadora ajusta automaticamente.'},
+  CPT:{f:'Carriage Paid To',e:60,
+    paga_exp:['v_fp','v_cap','v_car','v_do','v_thc','v_fi'],
+    va_fi:true,va_seg:false,
+    d:'<strong>CPT:</strong> Equivalente multimodal do CFR. Exportador paga frete ao destino; risco ao importador no 1º transportador. Importador contrata seguro. VA = Mercadoria (inclui frete) + Seguro.',
+    alert:'CPT: frete já incluído no preço. Use para qualquer modal (não apenas marítimo).'},
+  CIP:{f:'Carriage and Insurance Paid',e:68,
+    paga_exp:['v_fp','v_cap','v_car','v_do','v_thc','v_fi','v_seg'],
+    va_fi:true,va_seg:true,
+    d:'<strong>CIP:</strong> Equivalente multimodal do CIF. Exportador paga frete e seguro (Incoterms 2020 exige cobertura ampla — ICC A). VA = preço CIP total.',
+    alert:'CIP: frete e seguro já incluídos no preço. Válido para qualquer modal.'},
+  DAP:{f:'Delivered at Place',e:80,
+    paga_exp:['v_fp','v_cap','v_car','v_do','v_thc','v_fi','v_seg'],
+    va_fi:true,va_seg:true,
+    d:'<strong>DAP:</strong> Exportador entrega no local de destino acordado, sem desembaraço de importação. Importador paga tributos, descarregamento e desembaraço. VA = preço DAP.',
+    alert:''},
+  DPU:{f:'Delivered at Place Unloaded',e:82,
+    paga_exp:['v_fp','v_cap','v_car','v_do','v_thc','v_fi','v_seg'],
+    va_fi:true,va_seg:true,
+    d:'<strong>DPU:</strong> Único incoterm em que o exportador assume o descarregamento no destino. Importador paga tributos e desembaraço. VA = preço DPU.',
+    alert:''},
+  DDP:{f:'Delivered Duty Paid',e:98,
+    paga_exp:['v_fp','v_cap','v_car','v_do','v_thc','v_fi','v_seg','v_da'],
+    va_fi:true,va_seg:true,
+    d:'<strong>DDP:</strong> Máxima responsabilidade do exportador — entrega no destino com todos os custos e tributos pagos. Importador não gerencia logística nem aduaneiro.',
+    alert:'Atenção: no DDP, o exportador paga os tributos de importação do país destino. Verifique se isso está correto na negociação — é incomum e pode gerar complicações fiscais no Brasil.'},
 };
 
 let cur='FOB';
 function g(id){return parseFloat(document.getElementById(id)?.value)||0;}
-function B(v){return 'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}
-function U(v){return 'US$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function B(v){return 'R$\u00a0'+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function U(v){return 'US$\u00a0'+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}
+
+// Siscomex: R$ 115,67 por DI + por adição
+function calcSiscomex(n){
+  let total=115.67;
+  for(let i=1;i<=n;i++){
+    if(i<=2) total+=38.56;
+    else if(i<=7) total+=19.28;
+    else total+=9.64;
+  }
+  return total;
+}
 
 function buildTabs(){
   const c=document.getElementById('tabs');c.innerHTML='';
@@ -217,122 +377,186 @@ function buildTabs(){
   });
 }
 
-function R(nm,uv,bv,znm){
-  const z=uv===null;
-  const nc=z?(znm?'znm':'z nm'):'nm';
-  const vc=z?'z':'';
-  const ut=z?'—':uv===0?'0,00':U(uv).replace('US$ ','');
-  const bt=z?'exportador':B(bv);
-  return`<tr><td class="${nc}">${nm}</td><td class="${vc}">${ut}</td><td class="${vc}">${bt}</td></tr>`;
+function setWho(elId,isPaidByExp,label){
+  const el=document.getElementById(elId);
+  if(!el)return;
+  if(isPaidByExp){el.textContent='exportador paga';el.className='badge bg';}
+  else{el.textContent='importador paga';el.className='badge bv';}
+}
+
+function TR(nm,base,bv,cls=''){
+  return`<tr><td class="nm">${nm}</td><td style="text-align:right;font-size:10px;color:var(--text3)">${base}</td><td class="${cls}">${B(bv)}</td></tr>`;
+}
+function OR(nm,uv,bv,isExp){
+  if(isExp)return`<tr><td class="znm">${nm}</td><td class="z">exportador</td><td class="z">—</td></tr>`;
+  return`<tr><td class="nm">${nm}</td><td>${uv===0?'0,00':U(uv).replace('US$\u00a0','')}</td><td>${B(bv)}</td></tr>`;
 }
 function SR(l){return`<tr class="sr"><td colspan="3">${l}</td></tr>`;}
 
 function calc(){
   const cam=g('cambio')||5.80;
-  const inc=INC[cur];const p=inc.p;
+  const inc=INC[cur];
+  const p=inc.paga_exp;
   const modal=document.getElementById('modal').value;
   const regime=document.getElementById('regime').value;
   const isFree=regime!=='consumo';
+  const uf=document.getElementById('uf').value;
+  const nAd=Math.max(1,parseInt(document.getElementById('n_adicoes').value)||1);
 
+  // ICMS por UF
+  const icmsAliq=uf==='outro'?g('p_icms_manual')/100:(ICMS_UF[uf]||18)/100;
+  document.getElementById('icms-manual-wrap').style.display=uf==='outro'?'block':'none';
+
+  // Regime alert
+  const ra=document.getElementById('regime-alert');
+  if(isFree){
+    ra.style.display='block';
+    ra.className='alert alert-green';
+    if(regime==='drawback') ra.textContent='Drawback: suspensão ou isenção de II, IPI, PIS/COFINS para mercadorias que serão exportadas após industrialização. Tributos zerados na simulação.';
+    else if(regime==='recof') ra.textContent='RECOF: regime aduaneiro especial com suspensão de tributos para empresas exportadoras habilitadas pela Receita Federal.';
+    else ra.textContent='Regime especial ativo: tributos federais podem ser suspensos ou isentos. Confirme com seu despachante.';
+  } else {ra.style.display='none';}
+
+  // Incoterm alert
+  const ia=document.getElementById('inco-alert');
+  if(inc.alert){ia.style.display='block';ia.textContent=inc.alert;}
+  else{ia.style.display='none';}
+
+  // Bar
   document.getElementById('be').style.width=inc.e+'%';
   document.getElementById('be').textContent=inc.e>15?'EXP '+inc.e+'%':'';
   document.getElementById('bi').style.width=(100-inc.e)+'%';
   document.getElementById('bi').textContent=(100-inc.e)>15?'IMP '+(100-inc.e)+'%':'';
   document.getElementById('iexpl').innerHTML=inc.d;
 
-  const merc=g('v_merc'),fi=g('v_fi'),seg=g('v_seg'),thc=g('v_thc');
-  const ao=g('v_ao'),dor=g('v_do'),fp=g('v_fp'),cap=g('v_cap'),car=g('v_car');
-  const ata=g('v_ata'),a1=g('v_a1'),a2=g('v_a2'),a3=g('v_a3'),thc2=g('v_thc2');
-  const ld=g('v_ld'),sc=g('v_sc'),sx=g('v_sx'),da=g('v_da');
-  const ta=g('v_ta'),des=g('v_des'),mul=g('v_mul'),gs=g('v_gs'),op=g('v_op');
-  const iof=g('v_iof'),fd=g('v_fd');
+  // Who badges
+  setWho('fi-who',p.includes('v_fi'));
+  setWho('seg-who',p.includes('v_seg'));
+  setWho('thc-who',p.includes('v_thc'));
+  setWho('do-who',p.includes('v_do'));
+  setWho('fp-who',p.includes('v_fp'));
+  setWho('cap-who',p.includes('v_cap'));
+  setWho('car-who',p.includes('v_car'));
+  setWho('da-who',p.includes('v_da'));
 
-  const iv=(id,v)=>p.includes(id)?null:v;
+  const merc=g('v_merc'),fi=g('v_fi'),seg=g('v_seg');
 
-  const va=merc+fi+seg;const va_b=va*cam;
-  const pii=g('p_ii')/100,pipi=g('p_ipi')/100,ppc=g('p_pc')/100,picms=g('p_icms')/100;
-  const ii=isFree?0:va_b*pii;
-  const ipi=isFree?0:(va_b+ii)*pipi;
-  const pc=isFree?0:va_b*ppc;
-  const afrmm=(modal==='maritimo'&&!p.includes('v_fi'))?fi*cam*0.25:0;
-  const icms_base=(va_b+ii+ipi+pc+afrmm)/(1-picms);
-  const icms=isFree?0:icms_base*picms;
-  const trib=ii+ipi+pc+afrmm+icms;
+  // VA: se frete/seguro já incluídos no preço (CIF,CFR,CIP,CPT,DAP,DPU,DDP), não soma separado
+  const va_fi_val = inc.va_fi ? 0 : fi;
+  const va_seg_val = inc.va_seg ? 0 : seg;
+  const va = merc + va_fi_val + va_seg_val;
+  const va_b = va * cam;
 
-  let html='';
-  html+=SR('Custos iniciais');
-  html+=R('Valor da Mercadoria',iv('v_merc',merc),iv('v_merc',merc)!==null?merc*cam:null);
-  html+=R('Frete Internacional',iv('v_fi',fi),iv('v_fi',fi)!==null?fi*cam:null);
-  html+=R('Seguro Internacional',iv('v_seg',seg),iv('v_seg',seg)!==null?seg*cam:null);
-  html+=R('THC',iv('v_thc',thc),iv('v_thc',thc)!==null?thc*cam:null);
-  html+=R('Armazenagem (origem)',iv('v_ao',ao),iv('v_ao',ao)!==null?ao*cam:null);
-  html+=R('Despachante na origem',iv('v_do',dor),iv('v_do',dor)!==null?dor*cam:null);
-  html+=R('Frete interno / pré-embarque',iv('v_fp',fp),iv('v_fp',fp)!==null?fp*cam:null);
-  html+=R('Capatazia (embarque)',iv('v_cap',cap),iv('v_cap',cap)!==null?cap*cam:null);
-  html+=R('Carregamento',iv('v_car',car),iv('v_car',car)!==null?car*cam:null);
+  // Preview VA
+  let va_formula = `${U(merc)}`;
+  if(!inc.va_fi && fi>0) va_formula += ` + ${U(fi)} (frete)`;
+  if(!inc.va_seg && seg>0) va_formula += ` + ${U(seg)} (seguro)`;
+  if(inc.va_fi || inc.va_seg) va_formula += ` <span style="color:var(--text3);font-size:10px">(frete/seguro já embutidos)</span>`;
+  va_formula += ` = ${U(va)}`;
+  document.getElementById('va-formula').innerHTML=va_formula;
 
-  html+=SR('Valor Aduaneiro — base tributária');
-  html+=`<tr class="var"><td>VA = Mercadoria + Frete Int. + Seguro</td><td>${U(va).replace('US$ ','')}</td><td>${B(va_b)}</td></tr>`;
+  // Tributos
+  const pii=g('p_ii')/100,pipi=g('p_ipi')/100,ppc=g('p_pc')/100;
+  const ii   = isFree ? 0 : va_b * pii;
+  const ipi  = isFree ? 0 : (va_b + ii) * pipi;
+  const pc   = isFree ? 0 : va_b * ppc;
+  // AFRMM: 25% do frete internacional, SOMENTE marítimo, somente se frete é custo do importador
+  const afrmm_val = (modal==='maritimo' && !p.includes('v_fi')) ? fi*cam*0.25 : 0;
+  // Siscomex: taxa fixa por DI + por adição (em BRL)
+  const siscomex_brl = calcSiscomex(nAd);
+  // ICMS por dentro: base = (VA*cam + II + IPI + PIS/COF + AFRMM + siscomex) / (1 - aliq)
+  const base_pre_icms = va_b + ii + ipi + pc + afrmm_val + siscomex_brl;
+  const icms_base = isFree ? 0 : base_pre_icms / (1 - icmsAliq);
+  const icms = isFree ? 0 : icms_base * icmsAliq;
+  const trib_total = ii + ipi + pc + afrmm_val + siscomex_brl + icms;
 
-  html+=SR('Tributos federais');
-  html+=`<tr><td class="nm">II — Imp. Importação (${(pii*100).toFixed(1)}% × VA)${isFree?' <span style="font-size:9px;color:var(--green)">isento</span>':''}</td><td></td><td>${B(ii)}</td></tr>`;
-  html+=`<tr><td class="nm">IPI (${(pipi*100).toFixed(1)}% × (VA+II))${isFree?' <span style="font-size:9px;color:var(--green)">isento</span>':''}</td><td></td><td>${B(ipi)}</td></tr>`;
-  html+=`<tr><td class="nm">PIS/COFINS (${(ppc*100).toFixed(1)}% × VA)${isFree?' <span style="font-size:9px;color:var(--green)">isento</span>':''}</td><td></td><td>${B(pc)}</td></tr>`;
-  if(modal==='maritimo') html+=`<tr><td class="nm">AFRMM (25% × Frete Int.)</td><td></td><td>${B(afrmm)}</td></tr>`;
+  // Tabela tributária
+  let htrib = SR('Base de cálculo');
+  htrib += TR('Valor Aduaneiro (VA)',inc.va_fi||inc.va_seg?'Merc. (frete/seg embutidos)':'Merc. + Frete + Seguro',va_b,'');
+  htrib += SR('Tributos federais');
+  htrib += `<tr><td class="nm">II — Imposto de Importação${isFree?' <span style="font-size:9px;color:var(--green)">isento/suspenso</span>':''}</td><td style="text-align:right;font-size:10px;color:var(--text3)">${(pii*100).toFixed(1)}% × VA</td><td>${B(ii)}</td></tr>`;
+  htrib += `<tr><td class="nm">IPI${isFree?' <span style="font-size:9px;color:var(--green)">isento/suspenso</span>':''}</td><td style="text-align:right;font-size:10px;color:var(--text3)">${(pipi*100).toFixed(1)}% × (VA+II)</td><td>${B(ipi)}</td></tr>`;
+  htrib += `<tr><td class="nm">PIS/COFINS${isFree?' <span style="font-size:9px;color:var(--green)">isento/suspenso</span>':''}</td><td style="text-align:right;font-size:10px;color:var(--text3)">${(ppc*100).toFixed(1)}% × VA</td><td>${B(pc)}</td></tr>`;
+  if(modal==='maritimo'){
+    htrib += `<tr><td class="nm">AFRMM${p.includes('v_fi')?' <span style="font-size:9px;color:var(--green)">não aplicável (exportador paga frete)</span>':''}</td><td style="text-align:right;font-size:10px;color:var(--text3)">25% × frete int.</td><td>${B(afrmm_val)}</td></tr>`;
+  } else {
+    htrib += `<tr><td class="znm">AFRMM</td><td style="text-align:right;font-size:10px;color:var(--text3)">N/A — modal ${modal}</td><td class="z">${B(0)}</td></tr>`;
+  }
+  htrib += `<tr><td class="nm">Taxa Siscomex (DI + ${nAd} adição${nAd>1?'ões':''})</td><td style="text-align:right;font-size:10px;color:var(--text3)">R$115,67 + adições</td><td>${B(siscomex_brl)}</td></tr>`;
+  htrib += SR('ICMS — por UF');
+  htrib += `<tr><td class="nm">ICMS — ${uf} (por dentro)${isFree?' <span style="font-size:9px;color:var(--green)">isento/suspenso</span>':''}</td><td style="text-align:right;font-size:10px;color:var(--text3)">${(icmsAliq*100).toFixed(1)}% s/ base expandida</td><td>${B(icms)}</td></tr>`;
+  htrib += `<tr class="trib-sub"><td>Total tributos</td><td></td><td>${B(trib_total)}</td></tr>`;
+  document.getElementById('tbody-trib').innerHTML=htrib;
 
-  html+=SR('Armazenagem e manuseio — destino');
-  html+=R('ATA — armazenagem + capatazia',ata,ata*cam);
-  html+=R('Armazenagem 1 (arm1)',a1,a1*cam);
-  html+=R('Armazenagem 2 (arm2)',a2,a2*cam);
-  html+=R('Armazenagem 3 (arm3)',a3,a3*cam);
-  html+=R('THC 2 (destino)',thc2,thc2*cam);
+  // Operacionais
+  const v_thc=g('v_thc'),v_ao=g('v_ao'),v_do=g('v_do'),v_fp=g('v_fp'),v_cap=g('v_cap'),v_car=g('v_car');
+  const v_ata=g('v_ata'),v_a1=g('v_a1'),v_a2=g('v_a2'),v_a3=g('v_a3'),v_thc2=g('v_thc2');
+  const v_ld=g('v_ld'),v_da=g('v_da'),v_ta=g('v_ta'),v_des=g('v_des'),v_mul=g('v_mul');
+  const v_gs=g('v_gs'),v_op=g('v_op'),v_iof=g('v_iof'),v_fd=g('v_fd');
 
-  html+=SR('Serviços aduaneiros');
-  html+=R('Liberação de Documentos',ld,ld*cam);
-  html+=R('SISCARGA',sc,sc*cam);
-  html+=R('SISCOMEX',sx,sx*cam);
-  html+=R('Despachante Aduaneiro',iv('v_da',da),iv('v_da',da)!==null?da*cam:null);
-  html+=R('Trânsito Aduaneiro',ta,ta*cam);
-  html+=R('Desembaraço',des,des*cam);
-  html+=R('Multa',mul,mul*cam);
-  html+=R('G/S — Guarda e Segurança',gs,gs*cam);
-  html+=R('Despesas Operacionais',op,op*cam);
+  let hop = SR('Mercadoria e logística internacional');
+  hop += OR('Valor da Mercadoria',merc,merc*cam,false);
+  hop += OR('Frete Internacional',fi,fi*cam,p.includes('v_fi'));
+  hop += OR('Seguro Internacional',seg,seg*cam,p.includes('v_seg'));
+  hop += SR('Embarque — origem');
+  hop += OR('THC / manuseio porto origem',v_thc,v_thc*cam,p.includes('v_thc'));
+  hop += OR('Armazenagem (origem)',v_ao,v_ao*cam,false);
+  hop += OR('Despachante na origem',v_do,v_do*cam,p.includes('v_do'));
+  hop += OR('Frete interno / pré-embarque',v_fp,v_fp*cam,p.includes('v_fp'));
+  hop += OR('Capatazia (embarque)',v_cap,v_cap*cam,p.includes('v_cap'));
+  hop += OR('Carregamento',v_car,v_car*cam,p.includes('v_car'));
+  hop += SR('Destino — armazenagem e manuseio');
+  hop += OR('ATA — armazenagem + capatazia',v_ata,v_ata*cam,false);
+  hop += OR('Armazenagem 1 (arm1)',v_a1,v_a1*cam,false);
+  hop += OR('Armazenagem 2 (arm2)',v_a2,v_a2*cam,false);
+  hop += OR('Armazenagem 3 (arm3)',v_a3,v_a3*cam,false);
+  hop += OR('THC 2 / destino',v_thc2,v_thc2*cam,false);
+  hop += SR('Serviços aduaneiros');
+  hop += OR('Liberação de Documentos',v_ld,v_ld*cam,false);
+  hop += OR('Despachante Aduaneiro',v_da,v_da*cam,p.includes('v_da'));
+  hop += OR('Trânsito Aduaneiro',v_ta,v_ta*cam,false);
+  hop += OR('Desembaraço',v_des,v_des*cam,false);
+  hop += OR('Multa',v_mul,v_mul*cam,false);
+  hop += OR('G/S — Guarda e Segurança',v_gs,v_gs*cam,false);
+  hop += OR('Despesas Operacionais',v_op,v_op*cam,false);
+  hop += OR('Banco / IOF',v_iof,v_iof*cam,false);
+  hop += OR('Frete Interno (destino final)',v_fd,v_fd*cam,false);
 
-  const sub_u=(p.includes('v_merc')?0:merc)+(p.includes('v_fi')?0:fi)+(p.includes('v_seg')?0:seg)+
-    (p.includes('v_thc')?0:thc)+ao+(p.includes('v_do')?0:dor)+(p.includes('v_fp')?0:fp)+
-    (p.includes('v_cap')?0:cap)+(p.includes('v_car')?0:car)+ata+a1+a2+a3+thc2+ld+sc+sx+
-    (p.includes('v_da')?0:da)+ta+des+mul+gs+op;
-  const sub_b=sub_u*cam+ii+ipi+pc+afrmm;
+  // Sub operacional
+  const op_imp_usd = merc+(p.includes('v_fi')?0:fi)+(p.includes('v_seg')?0:seg)+
+    (p.includes('v_thc')?0:v_thc)+v_ao+(p.includes('v_do')?0:v_do)+
+    (p.includes('v_fp')?0:v_fp)+(p.includes('v_cap')?0:v_cap)+(p.includes('v_car')?0:v_car)+
+    v_ata+v_a1+v_a2+v_a3+v_thc2+v_ld+(p.includes('v_da')?0:v_da)+
+    v_ta+v_des+v_mul+v_gs+v_op+v_iof+v_fd;
+  const op_brl = op_imp_usd * cam;
 
-  html+=`<tr class="sub"><td>Subtotal</td><td>${U(sub_u).replace('US$ ','')}</td><td>${B(sub_b)}</td></tr>`;
-  html+=SR('Custos finais');
-  html+=`<tr><td class="nm">ICMS (${(picms*100).toFixed(1)}% por dentro)${isFree?' <span style="font-size:9px;color:var(--green)">isento</span>':''}</td><td></td><td>${B(icms)}</td></tr>`;
-  html+=R('Banco / IOF',iof,iof*cam);
-  html+=R('Frete Interno (destino final)',fd,fd*cam);
+  hop += `<tr class="sub"><td>Subtotal operacional</td><td>${U(op_imp_usd).replace('US$\u00a0','')}</td><td>${B(op_brl)}</td></tr>`;
 
-  const tot_b=sub_b+icms+iof*cam+fd*cam;
-  const tot_u=tot_b/cam;
-  html+=`<tr class="tot"><td>Custo Total de Importação</td><td>${U(tot_u).replace('US$ ','')}</td><td>${B(tot_b)}</td></tr>`;
-  document.getElementById('tbody').innerHTML=html;
+  const total_brl = op_brl + trib_total;
+  const total_usd = total_brl / cam;
+  hop += `<tr class="tot"><td>Custo Total de Importação</td><td>${U(total_usd).replace('US$\u00a0','')}</td><td>${B(total_brl)}</td></tr>`;
+  document.getElementById('tbody-op').innerHTML=hop;
 
-  const mk=merc>0?((tot_b/(merc*cam)-1)*100).toFixed(1)+'%':'—';
-  const tp=tot_b>0?(trib/tot_b*100).toFixed(1)+'%':'—';
-  document.getElementById('m_tot').textContent=B(tot_b);
-  document.getElementById('m_tot2').textContent=U(tot_u);
-  document.getElementById('m_tri').textContent=B(trib);
+  // Metrics
+  const mk=merc>0?((total_brl/(merc*cam)-1)*100).toFixed(1)+'%':'—';
+  const tp=total_brl>0?(trib_total/total_brl*100).toFixed(1)+'%':'—';
+  document.getElementById('m_tot').textContent=B(total_brl);
+  document.getElementById('m_tot2').textContent=U(total_usd);
+  document.getElementById('m_tri').textContent=B(trib_total);
   document.getElementById('m_tri2').textContent=tp+' do total';
   document.getElementById('m_mk').textContent=mk;
   document.getElementById('m_va').textContent='VA: '+U(va);
 
-  const rn=isFree?` Regime <strong>${regime}</strong> — tributos zerados.`:'';
+  const rn=isFree?` <span class="warn">Regime ${regime} — tributos zerados na simulação.</span>`:'';
+  const afrmmNote=modal!=='maritimo'?` AFRMM <strong>não aplicável</strong> (modal ${modal}).`:` AFRMM = 25% × frete = ${B(afrmm_val)}.`;
   document.getElementById('ebox').innerHTML=
-    `<strong>${cur} — ${inc.f}:</strong> Exportador cobre <span class="hi">${inc.e}%</span> da cadeia logística. `+
-    `Importador paga <span class="hi">${B(tot_b)}</span> no total.${rn}<br><br>`+
-    `VA = <span class="hi">${U(va)}</span> → <span class="hi">${B(va_b)}</span>. `+
-    `Tributos totais (II + IPI + PIS/COFINS${modal==='maritimo'?' + AFRMM':''} + ICMS) = <span class="hi">${B(trib)}</span> `+
-    `(<span class="hi">${tp}</span> do custo total). `+
-    `ICMS calculado por dentro: ${(picms*100).toFixed(1)}% sobre base expandida = <span class="hi">${B(icms)}</span>.`;
+    `<strong>${cur} — ${inc.f}:</strong> Exportador cobre <span class="hi">${inc.e}%</span> da cadeia. `+
+    `Importador paga <span class="hi">${B(total_brl)}</span>.${rn}<br><br>`+
+    `<strong>VA</strong> = <span class="hi">${U(va)}</span> → <span class="hi">${B(va_b)}</span>${inc.va_fi||inc.va_seg?' (frete/seguro já embutidos no preço)':''}.<br>`+
+    `<strong>Tributos:</strong> II ${B(ii)} + IPI ${B(ipi)} + PIS/COF ${B(pc)}${afrmmNote} Siscomex ${B(siscomex_brl)} + ICMS/${uf} (${(icmsAliq*100).toFixed(1)}%) ${B(icms)} = <span class="hi">${B(trib_total)}</span> (<span class="hi">${tp}</span> do total).<br>`+
+    `ICMS calculado <strong>por dentro</strong> sobre base expandida de ${B(icms_base)}.`;
 }
+
 buildTabs();calc();
 </script>
 </body>
