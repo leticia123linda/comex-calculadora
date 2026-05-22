@@ -357,64 +357,377 @@ footer strong{color:var(--ouro)}
 <!-- ======= INCOTERMS ======= -->
 <div class="pg" id="pg-inco">
 <div style="padding:14px">
+
   <div class="t-card">
-    <div class="t-head"><span class="t-tag">?</span>O que são Incoterms?</div>
+    <div class="t-head"><span class="t-tag">📖</span>O que são Incoterms?</div>
     <div class="t-body">
-      <strong>Incoterms (International Commercial Terms)</strong> são regras da ICC que definem quem paga cada custo e quem assume o risco da mercadoria em cada ponto da operação internacional.<br><br>
-      Versão atual: <strong>Incoterms 2020</strong> — 11 termos em 2 grupos:<br>
-      <ul>
-        <li><strong>Qualquer modal:</strong> EXW · FCA · CPT · CIP · DAP · DPU · DDP</li>
-        <li><strong>Marítimo/fluvial:</strong> FAS · FOB · CFR · CIF</li>
+      <strong>Incoterms (International Commercial Terms)</strong> são regras internacionais publicadas pela <strong>ICC — Câmara de Comércio Internacional</strong>. Definem, em uma operação de compra e venda internacional, três coisas fundamentais:<br><br>
+      <strong>1. Quem paga cada custo</strong> — frete, seguro, THC, despacho, armazenagem<br>
+      <strong>2. Onde o risco passa</strong> do vendedor para o comprador<br>
+      <strong>3. Quem providencia o seguro</strong> — e qual cobertura mínima<br><br>
+      Versão atual: <strong>Incoterms 2020</strong> (substituiu 2010). 11 termos em 2 grupos:<br>
+      <ul style="margin-top:8px">
+        <li><strong>Qualquer modal de transporte:</strong> EXW · FCA · CPT · CIP · DAP · DPU · DDP</li>
+        <li><strong>Exclusivo marítimo/fluvial:</strong> FAS · FOB · CFR · CIF</li>
       </ul>
+      <div style="background:var(--amber-bg);border-radius:7px;padding:9px 11px;margin-top:10px;font-size:12px;color:var(--amber)">
+        ⚠️ <strong>Erro clássico:</strong> usar FOB, CFR ou CIF em transporte aéreo. Esses três são exclusivos para marítimo/fluvial. Para aéreo, use FCA, CPT ou CIP.
+      </div>
     </div>
   </div>
+
+  <!-- ILUSTRAÇÃO: cadeia de responsabilidade -->
   <div class="t-card">
-    <div class="t-head"><span class="t-tag">📋</span>Tabela completa</div>
+    <div class="t-head"><span class="t-tag">🗺️</span>Mapa de responsabilidade — do EXW ao DDP</div>
+    <div class="t-body" style="padding:10px 6px">
+      <div style="font-size:11px;color:var(--txt3);margin-bottom:8px;text-align:center">Quanto mais à direita o incoterm, mais o exportador paga e assume risco</div>
+      <div style="overflow-x:auto">
+      <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:480px;display:block">
+        <!-- trilho -->
+        <rect x="30" y="95" width="640" height="6" rx="3" fill="#dce3f0"/>
+        <!-- pontos da cadeia -->
+        <circle cx="30" cy="98" r="8" fill="#002f87"/>
+        <circle cx="120" cy="98" r="8" fill="#002f87"/>
+        <circle cx="200" cy="98" r="8" fill="#002f87"/>
+        <circle cx="290" cy="98" r="8" fill="#002f87"/>
+        <circle cx="380" cy="98" r="8" fill="#002f87"/>
+        <circle cx="460" cy="98" r="8" fill="#002f87"/>
+        <circle cx="560" cy="98" r="8" fill="#002f87"/>
+        <circle cx="670" cy="98" r="8" fill="#FFB81C"/>
+        <!-- rótulos cima -->
+        <text x="30" y="82" text-anchor="middle" font-size="9" fill="#4a5575">Fábrica</text>
+        <text x="120" y="82" text-anchor="middle" font-size="9" fill="#4a5575">Saída</text>
+        <text x="200" y="82" text-anchor="middle" font-size="9" fill="#4a5575">Porto/Aerop.</text>
+        <text x="200" y="72" text-anchor="middle" font-size="9" fill="#4a5575">Origem</text>
+        <text x="290" y="82" text-anchor="middle" font-size="9" fill="#4a5575">A bordo</text>
+        <text x="290" y="72" text-anchor="middle" font-size="9" fill="#4a5575">navio</text>
+        <text x="380" y="82" text-anchor="middle" font-size="9" fill="#4a5575">Porto/Aerop.</text>
+        <text x="380" y="72" text-anchor="middle" font-size="9" fill="#4a5575">Destino</text>
+        <text x="460" y="82" text-anchor="middle" font-size="9" fill="#4a5575">Alfândega</text>
+        <text x="460" y="72" text-anchor="middle" font-size="9" fill="#4a5575">Destino</text>
+        <text x="560" y="82" text-anchor="middle" font-size="9" fill="#4a5575">Local</text>
+        <text x="560" y="72" text-anchor="middle" font-size="9" fill="#4a5575">Acordado</text>
+        <text x="670" y="82" text-anchor="middle" font-size="9" fill="#FFB81C">Fábrica</text>
+        <text x="670" y="72" text-anchor="middle" font-size="9" fill="#FFB81C">Importador</text>
+        <!-- incoterms baixo -->
+        <text x="30" y="118" text-anchor="middle" font-size="9" font-weight="bold" fill="#002f87">EXW</text>
+        <text x="120" y="118" text-anchor="middle" font-size="9" font-weight="bold" fill="#002f87">FCA</text>
+        <text x="175" y="118" text-anchor="middle" font-size="9" font-weight="bold" fill="#002f87">FAS</text>
+        <text x="290" y="118" text-anchor="middle" font-size="9" font-weight="bold" fill="#002f87">FOB</text>
+        <text x="335" y="118" text-anchor="middle" font-size="9" font-weight="bold" fill="#002f87">CFR</text>
+        <text x="380" y="118" text-anchor="middle" font-size="9" font-weight="bold" fill="#002f87">CIF</text>
+        <text x="335" y="130" text-anchor="middle" font-size="9" font-weight="bold" fill="#002f87">CPT</text>
+        <text x="380" y="130" text-anchor="middle" font-size="9" font-weight="bold" fill="#002f87">CIP</text>
+        <text x="460" y="118" text-anchor="middle" font-size="9" font-weight="bold" fill="#002f87">DAP</text>
+        <text x="510" y="118" text-anchor="middle" font-size="9" font-weight="bold" fill="#002f87">DPU</text>
+        <text x="670" y="118" text-anchor="middle" font-size="9" font-weight="bold" fill="#FFB81C">DDP</text>
+        <!-- setas -->
+        <text x="340" y="160" text-anchor="middle" font-size="10" fill="#002f87">← Exportador assume mais risco e custo</text>
+        <text x="340" y="175" text-anchor="middle" font-size="10" fill="#FFB81C">Importador assume mais risco e custo →</text>
+      </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabela resumo com seguro -->
+  <div class="t-card">
+    <div class="t-head"><span class="t-tag">📋</span>Tabela completa — quem paga o seguro?</div>
     <div class="tbl-wrap">
       <table class="inc-tbl">
-        <thead><tr><th>Termo</th><th>Nome</th><th>Modal</th><th>Exportador até</th><th>Importador a partir de</th></tr></thead>
+        <thead><tr><th>Termo</th><th>Nome completo</th><th>Modal</th><th>Ponto de risco</th><th>Seguro obrigatório</th><th>Quem faz o seguro</th></tr></thead>
         <tbody>
-          <tr><td><strong>EXW</strong></td><td>Ex Works</td><td><span class="bsm bl">Qualquer</span></td><td>Fábrica</td><td>Tudo</td></tr>
-          <tr><td><strong>FCA</strong></td><td>Free Carrier</td><td><span class="bsm bl">Qualquer</span></td><td>Transportador + desp. exp.</td><td>Frete, seguro, destino</td></tr>
-          <tr><td><strong>FAS</strong></td><td>Free Alongside Ship</td><td><span class="bsm bo">Marítimo</span></td><td>Ao lado do navio</td><td>THC, frete, seguro, destino</td></tr>
-          <tr><td><strong>FOB</strong></td><td>Free On Board</td><td><span class="bsm bo">Marítimo</span></td><td>A bordo + THC + desp. exp.</td><td>Frete, seguro, destino</td></tr>
-          <tr><td><strong>CFR</strong></td><td>Cost and Freight</td><td><span class="bsm bo">Marítimo</span></td><td>Frete até porto destino</td><td>Seguro, desembaraço, destino</td></tr>
-          <tr><td><strong>CIF</strong></td><td>Cost, Insurance & Freight</td><td><span class="bsm bo">Marítimo</span></td><td>Frete + seguro mínimo</td><td>Desembaraço, destino</td></tr>
-          <tr><td><strong>CPT</strong></td><td>Carriage Paid To</td><td><span class="bsm bl">Qualquer</span></td><td>Frete até destino</td><td>Seguro, desembaraço</td></tr>
-          <tr><td><strong>CIP</strong></td><td>Carriage & Ins. Paid To</td><td><span class="bsm bl">Qualquer</span></td><td>Frete + seguro ICC A</td><td>Desembaraço</td></tr>
-          <tr><td><strong>DAP</strong></td><td>Delivered at Place</td><td><span class="bsm bl">Qualquer</span></td><td>Entrega no local destino</td><td>Tributos, desembaraço</td></tr>
-          <tr><td><strong>DPU</strong></td><td>Delivered Unloaded</td><td><span class="bsm bl">Qualquer</span></td><td>Entrega + descarregamento</td><td>Tributos, desembaraço</td></tr>
-          <tr><td><strong>DDP</strong></td><td>Delivered Duty Paid</td><td><span class="bsm bl">Qualquer</span></td><td>Tudo + tributos</td><td>Só descarregar</td></tr>
+          <tr><td><strong>EXW</strong></td><td>Ex Works</td><td><span class="bsm bl">Qualquer</span></td><td>Na fábrica do exportador</td><td>Nenhum</td><td><span class="bsm br">Importador (se quiser)</span></td></tr>
+          <tr><td><strong>FCA</strong></td><td>Free Carrier</td><td><span class="bsm bl">Qualquer</span></td><td>Entrega ao 1º transportador</td><td>Nenhum</td><td><span class="bsm br">Importador (se quiser)</span></td></tr>
+          <tr><td><strong>FAS</strong></td><td>Free Alongside Ship</td><td><span class="bsm bo">Marítimo</span></td><td>Ao lado do navio</td><td>Nenhum</td><td><span class="bsm br">Importador (se quiser)</span></td></tr>
+          <tr><td><strong>FOB</strong></td><td>Free On Board</td><td><span class="bsm bo">Marítimo</span></td><td>A bordo do navio</td><td>Nenhum</td><td><span class="bsm br">Importador (se quiser)</span></td></tr>
+          <tr><td><strong>CFR</strong></td><td>Cost and Freight</td><td><span class="bsm bo">Marítimo</span></td><td>A bordo (embarque)</td><td>Nenhum — risco do importador sem seguro!</td><td><span class="bsm br">Importador deve contratar</span></td></tr>
+          <tr><td><strong>CIF</strong></td><td>Cost, Insurance & Freight</td><td><span class="bsm bo">Marítimo</span></td><td>A bordo (embarque)</td><td>Sim — mínimo ICC C (cobertura básica)</td><td><span class="bsm bg2">Exportador contrata</span></td></tr>
+          <tr><td><strong>CPT</strong></td><td>Carriage Paid To</td><td><span class="bsm bl">Qualquer</span></td><td>1º transportador</td><td>Nenhum</td><td><span class="bsm br">Importador deve contratar</span></td></tr>
+          <tr><td><strong>CIP</strong></td><td>Carriage &amp; Insurance Paid To</td><td><span class="bsm bl">Qualquer</span></td><td>1º transportador</td><td>Sim — ICC A (cobertura ampla, all risks)</td><td><span class="bsm bg2">Exportador contrata</span></td></tr>
+          <tr><td><strong>DAP</strong></td><td>Delivered at Place</td><td><span class="bsm bl">Qualquer</span></td><td>Local de destino acordado</td><td>Nenhum</td><td><span class="bsm bg2">Exportador (por interesse próprio)</span></td></tr>
+          <tr><td><strong>DPU</strong></td><td>Delivered at Place Unloaded</td><td><span class="bsm bl">Qualquer</span></td><td>Após descarregamento</td><td>Nenhum</td><td><span class="bsm bg2">Exportador (por interesse próprio)</span></td></tr>
+          <tr><td><strong>DDP</strong></td><td>Delivered Duty Paid</td><td><span class="bsm bl">Qualquer</span></td><td>Local de destino</td><td>Nenhum</td><td><span class="bsm bg2">Exportador (por interesse próprio)</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="t-body" style="background:var(--azul-light);border-top:1px solid var(--border)">
+      <strong>ICC A, B e C — coberturas de seguro:</strong><br>
+      <strong>ICC C (mínima):</strong> só cobre riscos graves — naufrágio, colisão, incêndio, descarga emergência<br>
+      <strong>ICC B (intermediária):</strong> ICC C + entrada de água, perda total de volume<br>
+      <strong>ICC A (máxima / all risks):</strong> cobre tudo exceto exclusões expressas — guerra, desgaste natural, vício próprio<br><br>
+      CIF exige no mínimo ICC C. CIP (2020) exige ICC A.
+    </div>
+  </div>
+
+  <!-- Cards individuais por incoterm -->
+  <div class="t-card">
+    <div class="t-head" style="background:#e8f0fb;color:#002f87"><span class="t-tag">EXW</span>Ex Works — máxima responsabilidade do importador</div>
+    <div class="t-body">
+      O exportador apenas coloca a mercadoria à disposição em sua fábrica ou armazém. <strong>Não carrega, não despacha, não paga nada além disso.</strong><br><br>
+      <strong>Importador paga:</strong> carregamento, frete interno origem, THC, despacho de exportação, frete internacional, seguro, desembaraço, destino final.<br>
+      <strong>Ponto de risco:</strong> na fábrica do exportador.<br>
+      <strong>Uso no Brasil:</strong> raro — dificulta o despacho de exportação pelo importador estrangeiro.<br>
+      <strong>Atenção:</strong> no EXW, o importador precisa ter representante no país do exportador para fazer o despacho de exportação.
+    </div>
+  </div>
+
+  <div class="t-card">
+    <div class="t-head" style="background:#e8f0fb;color:#002f87"><span class="t-tag">FCA</span>Free Carrier — o mais equilibrado para multimodal</div>
+    <div class="t-body">
+      Exportador entrega a mercadoria ao transportador indicado pelo importador, no local combinado, <strong>com despacho de exportação já feito</strong>.<br><br>
+      <strong>Exportador paga:</strong> frete interno até o ponto de entrega + despacho de exportação.<br>
+      <strong>Importador paga:</strong> frete internacional, seguro, THC, desembaraço e destino.<br>
+      <strong>Ponto de risco:</strong> quando entregue ao 1º transportador.<br>
+      <strong>Uso:</strong> muito indicado para containers (o BL pode ser emitido a bordo por acordo entre as partes — novidade Incoterms 2020), carga aérea e rodoviária.<br>
+      <strong>VA:</strong> Mercadoria + Frete Internacional + Seguro.
+    </div>
+  </div>
+
+  <div class="t-card">
+    <div class="t-head" style="background:#e8f0fb;color:#002f87"><span class="t-tag">FAS</span>Free Alongside Ship — exclusivo marítimo</div>
+    <div class="t-body">
+      Exportador entrega a mercadoria ao lado do navio no porto de embarque (cais ou barcaça), com despacho de exportação feito.<br><br>
+      <strong>Importador paga:</strong> carregamento a bordo, THC, frete, seguro, destino.<br>
+      <strong>Ponto de risco:</strong> quando a carga está ao lado do navio no cais.<br>
+      <strong>Uso:</strong> cargas a granel, commodities — carga que não vai em container.<br>
+      <strong>Não use para carga aérea ou rodoviária.</strong>
+    </div>
+  </div>
+
+  <div class="t-card">
+    <div class="t-head" style="background:#e8f0fb;color:#002f87"><span class="t-tag">FOB</span>Free On Board — o mais usado no Brasil 🇧🇷</div>
+    <div class="t-body">
+      Exportador entrega a mercadoria <strong>a bordo do navio</strong> no porto de embarque, com despacho de exportação, THC e carregamento pagos.<br><br>
+      <strong>Exportador paga:</strong> frete interno, THC origem, carregamento, despacho de exportação.<br>
+      <strong>Importador paga:</strong> frete internacional, seguro, THC destino, desembaraço, destino.<br>
+      <strong>Ponto de risco:</strong> quando a mercadoria está a bordo do navio.<br>
+      <strong>VA:</strong> Mercadoria + Frete Internacional + Seguro.<br><br>
+      <div style="background:var(--amber-bg);border-radius:6px;padding:8px;font-size:12px;color:var(--amber)">⚠️ FOB é exclusivo para marítimo/fluvial. Para aéreo, use FCA!</div>
+    </div>
+  </div>
+
+  <div class="t-card">
+    <div class="t-head" style="background:#e8f0fb;color:#002f87"><span class="t-tag">CFR</span>Cost and Freight — atenção ao seguro!</div>
+    <div class="t-body">
+      Exportador paga o frete até o porto de destino. Porém, <strong>o risco passa ao importador quando a mercadoria está a bordo no embarque</strong> — não na chegada!<br><br>
+      <strong>Exportador paga:</strong> tudo até a bordo + frete internacional.<br>
+      <strong>Importador paga:</strong> seguro (obrigatório contratar!), desembaraço, destino.<br>
+      <strong>Ponto de risco:</strong> embarque (a bordo no porto de origem).<br>
+      <strong>VA:</strong> preço CFR (frete já embutido) + Seguro.<br><br>
+      <div style="background:var(--red-bg);border-radius:6px;padding:8px;font-size:12px;color:var(--red)">🚨 O importador fica exposto ao risco durante toda a viagem sem o seguro! O exportador paga o frete mas não o seguro. Sempre contrate o seguro no CFR.</div>
+    </div>
+  </div>
+
+  <div class="t-card">
+    <div class="t-head" style="background:#e8f0fb;color:#002f87"><span class="t-tag">CIF</span>Cost, Insurance &amp; Freight — 2º mais usado no Brasil</div>
+    <div class="t-body">
+      Exportador paga custo, seguro mínimo (ICC C) e frete até o porto de destino. Assim como CFR, <strong>o risco passa no embarque</strong>.<br><br>
+      <strong>Exportador paga:</strong> frete + seguro mínimo ICC C + todos os custos até a bordo.<br>
+      <strong>Importador paga:</strong> desembaraço, impostos, destino.<br>
+      <strong>Ponto de risco:</strong> embarque (a bordo).<br>
+      <strong>VA no Brasil:</strong> o valor CIF é a base padrão de cálculo do II — Mercadoria + Frete + Seguro.<br><br>
+      <div style="background:var(--amber-bg);border-radius:6px;padding:8px;font-size:12px;color:var(--amber)">⚠️ Cuidado com duplicidade: se o importador informa o valor CIF como preço da mercadoria, não some frete e seguro ao VA de novo!</div>
+    </div>
+  </div>
+
+  <div class="t-card">
+    <div class="t-head" style="background:#e8f0fb;color:#002f87"><span class="t-tag">CPT/CIP</span>Carriage Paid To / Carriage &amp; Insurance Paid — multimodal</div>
+    <div class="t-body">
+      <strong>CPT</strong> = equivalente multimodal do CFR. <strong>CIP</strong> = equivalente multimodal do CIF.<br><br>
+      <strong>CPT:</strong> Exportador paga frete até o destino. Risco no 1º transportador. Importador contrata seguro.<br>
+      <strong>CIP:</strong> Exportador paga frete + seguro ICC A (all risks) até o destino. Maior proteção que CIF.<br><br>
+      <strong>Diferença CIP vs CIF:</strong> CIP exige ICC A (cobertura total). CIF exige apenas ICC C (mínima). Portanto, CIP oferece cobertura muito superior.<br><br>
+      <strong>Use CPT/CIP</strong> para transporte aéreo, rodoviário ou multimodal onde CFR/CIF não são aplicáveis.
+    </div>
+  </div>
+
+  <div class="t-card">
+    <div class="t-head" style="background:#e8f0fb;color:#002f87"><span class="t-tag">DAP/DPU</span>Delivered at Place / Delivered Unloaded</div>
+    <div class="t-body">
+      <strong>DAP:</strong> Exportador entrega no local de destino acordado, pronto para descarregar. Importador paga descarregamento, desembaraço e tributos.<br><br>
+      <strong>DPU (novidade 2020):</strong> único incoterm onde o exportador assume também o descarregamento no destino. Antes chamado de DAT (Delivered at Terminal).<br><br>
+      <strong>Ponto de risco DAP:</strong> no local de destino, antes do descarregamento.<br>
+      <strong>Ponto de risco DPU:</strong> após o descarregamento no local de destino.<br><br>
+      <strong>Uso crescente no e-commerce internacional</strong> — vendedor entrega na porta.
+    </div>
+  </div>
+
+  <div class="t-card">
+    <div class="t-head" style="background:#e8f0fb;color:#002f87"><span class="t-tag">DDP</span>Delivered Duty Paid — máxima responsabilidade do exportador</div>
+    <div class="t-body">
+      Exportador entrega no destino com <strong>todos os custos pagos, incluindo tributos de importação do país de destino</strong>. O importador praticamente não gerencia nada.<br><br>
+      <strong>Exportador paga:</strong> absolutamente tudo — frete, seguro, despacho, tributos (II, IPI, ICMS, etc.).<br>
+      <strong>Importador paga:</strong> apenas o descarregamento (se não houver acordo).<br><br>
+      <div style="background:var(--red-bg);border-radius:6px;padding:8px;font-size:12px;color:var(--red)">🚨 No Brasil, é muito incomum e problemático: o exportador teria que ser habilitado a pagar tributos no Brasil, o que é quase impraticável. Evite DDP em importações brasileiras.</div>
+    </div>
+  </div>
+
+  <!-- Comparação seguro visual -->
+  <div class="t-card">
+    <div class="t-head"><span class="t-tag">🛡️</span>Resumo — Seguro por Incoterm</div>
+    <div class="t-body">
+      <table class="inc-tbl">
+        <thead><tr><th>Incoterm</th><th>Seguro obrigat.?</th><th>Quem contrata</th><th>Cobertura mínima</th></tr></thead>
+        <tbody>
+          <tr><td>EXW/FCA/FAS/FOB</td><td><span class="bsm br">Não</span></td><td>Importador (opcional)</td><td>A critério</td></tr>
+          <tr><td>CFR/CPT</td><td><span class="bsm br">Não</span></td><td>Importador <strong>deve</strong> contratar</td><td>A critério — risco real!</td></tr>
+          <tr><td>CIF</td><td><span class="bsm bg2">Sim</span></td><td>Exportador</td><td>ICC C (básica)</td></tr>
+          <tr><td>CIP</td><td><span class="bsm bg2">Sim</span></td><td>Exportador</td><td>ICC A (all risks)</td></tr>
+          <tr><td>DAP/DPU/DDP</td><td><span class="bsm br">Não</span></td><td>Exportador (por interesse próprio)</td><td>A critério</td></tr>
         </tbody>
       </table>
     </div>
   </div>
+
 </div>
 </div>
 
 <!-- ======= TRIBUTOS ======= -->
 <div class="pg" id="pg-trib">
 <div style="padding:14px">
-  <div class="t-card"><div class="t-head"><span class="t-tag">VA</span>Valor Aduaneiro</div><div class="t-body"><strong>VA = Mercadoria + Frete Int. + Seguro</strong><br>Base de cálculo de todos os tributos. Art. 77 do Regulamento Aduaneiro.<br><br><strong>Atenção:</strong> No CIF/CIP/CFR/CPT/DAP/DPU/DDP, frete e seguro já estão no preço — não some de novo!</div></div>
-  <div class="t-card"><div class="t-head"><span class="t-tag">II</span>Imposto de Importação</div><div class="t-body"><strong>II = VA × alíquota (por NCM)</strong><br>Federal, não recuperável. Varia de 0% a 35%. Pode ser reduzido por acordos (MERCOSUL) ou ex-tarifário.</div></div>
-  <div class="t-card"><div class="t-head"><span class="t-tag">IPI</span>IPI Importação</div><div class="t-body"><strong>IPI = (VA + II) × alíquota</strong><br>Federal. Pode ser recuperável para industriais. Drawback/RECOF: suspensão.</div></div>
-  <div class="t-card"><div class="t-head"><span class="t-tag">PIS</span>PIS/COFINS Importação</div><div class="t-body"><strong>PIS/COFINS = VA × 9,25%</strong> (padrão)<br>Federal. PIS 2,1% + COFINS 7,1%. Base = VA. Pode ser recuperável.</div></div>
-  <div class="t-card"><div class="t-head"><span class="t-tag">AFR</span>AFRMM</div><div class="t-body"><strong>AFRMM = Frete Int. × 25%</strong><br>Somente modal <strong>marítimo</strong>. Zero para aéreo, rodoviário, ferroviário. Fundo de Marinha Mercante. Não recuperável.</div></div>
-  <div class="t-card"><div class="t-head"><span class="t-tag">ICM</span>ICMS Importação — por dentro</div><div class="t-body"><strong>Base = (VA×câm + II + IPI + PIS/COF + AFRMM + Siscomex) ÷ (1 − alíq)</strong><br>ICMS = Base × alíquota<br><br>Por UF: SP/MG/RS/PR/CE/PE = 18% · SC/GO/PA/MT/MS/ES = 17% · BA = 19% · RJ/DF/AM = 20%</div></div>
-  <div class="t-card"><div class="t-head"><span class="t-tag">SIS</span>Taxa Siscomex</div><div class="t-body"><strong>R$ 115,67 por DI + por adição:</strong><br>R$ 38,56 (1ª e 2ª) · R$ 19,28 (3ª–7ª) · R$ 9,64 (8ª+)<br>Taxa em BRL pelo uso do sistema SISCOMEX.</div></div>
-  <div class="t-card"><div class="t-head"><span class="t-tag">REG</span>Regimes especiais</div><div class="t-body"><ul><li><strong>Drawback:</strong> suspensão/isenção para bens a exportar após industrialização</li><li><strong>RECOF:</strong> suspensão para exportadoras habilitadas</li><li><strong>REPETRO:</strong> petróleo e gás</li><li><strong>Ex-tarifário:</strong> II a 0% para bens de capital sem similar nacional</li></ul></div></div>
-  <div class="t-card"><div class="t-head"><span class="t-tag">ARM</span>Armazenagem S/C</div><div class="t-body"><strong>S/C = Sobre Câmbio</strong> — % aplicado sobre:<br>Base = VA × câmbio + II + IPI<br><br>ARM1 (1º período), ARM2 (2º período). ATA = % sobre a armazenagem (taxa de permanência na zona primária).</div></div>
+  <div class="t-card"><div class="t-head"><span class="t-tag">VA</span>Valor Aduaneiro — base de tudo</div><div class="t-body">
+    <strong>VA = Mercadoria + Frete Internacional + Seguro</strong><br>
+    Base de cálculo de <strong>todos</strong> os tributos de importação. Art. 77 do Regulamento Aduaneiro (Dec. 6.759/2009), baseado no Acordo de Valoração da OMC.<br><br>
+    <strong>Cuidado com duplicidade por Incoterm:</strong><br>
+    <ul><li><strong>EXW/FCA/FAS/FOB:</strong> some frete e seguro separadamente ao preço da mercadoria</li><li><strong>CFR/CPT:</strong> frete já no preço — some apenas o seguro</li><li><strong>CIF/CIP/DAP/DPU/DDP:</strong> frete e seguro já embutidos — VA = preço total</li></ul>
+  </div></div>
+  <div class="t-card"><div class="t-head"><span class="t-tag">II</span>Imposto de Importação</div><div class="t-body">
+    <strong>II = VA × alíquota (conforme NCM)</strong><br><br>
+    Tributo federal, <strong>não recuperável</strong>. Varia de 0% a 35% conforme a NCM (Nomenclatura Comum do Mercosul).<br><br>
+    <strong>Pode ser reduzido por:</strong><br>
+    <ul><li>Acordos regionais: MERCOSUL (TEC — Tarifa Externa Comum)</li><li>Ex-tarifário: II a 0% para bens de capital e informática sem similar nacional</li><li>Drawback: suspensão ou isenção</li><li>SGP (Sistema Geral de Preferências): países em desenvolvimento</li></ul>
+  </div></div>
+  <div class="t-card"><div class="t-head"><span class="t-tag">IPI</span>IPI Importação</div><div class="t-body">
+    <strong>IPI = (VA + II) × alíquota</strong><br><br>
+    Federal. A base inclui o II. Pode ser <strong>recuperável</strong> para empresas industriais (crédito fiscal). Alíquota varia por NCM — produtos essenciais podem ter 0%, supérfluos podem ter 300%.<br><br>
+    Regimes que suspendem: Drawback, RECOF, Admissão Temporária.
+  </div></div>
+  <div class="t-card"><div class="t-head"><span class="t-tag">PIS</span>PIS/COFINS Importação</div><div class="t-body">
+    <strong>Padrão: PIS 2,1% + COFINS 7,1% = 9,25% × VA</strong><br><br>
+    Federal. Base = VA (igual ao II). Pode ser recuperável no regime não-cumulativo. Alguns produtos têm alíquotas diferenciadas (farmacêuticos, alimentos, etc.).<br><br>
+    Em provas, o professor pode informar valor fixo em USD — use esse valor convertido pelo câmbio.
+  </div></div>
+  <div class="t-card"><div class="t-head"><span class="t-tag">AFR</span>AFRMM — só marítimo!</div><div class="t-body">
+    <strong>AFRMM = Frete Internacional × 25%</strong><br><br>
+    Adicional ao Frete para Renovação da Marinha Mercante. Incide <strong>exclusivamente no modal marítimo</strong>. Zero para aéreo, rodoviário, ferroviário ou dutoviário.<br><br>
+    Recolhido ao FRMM (Fundo de Marinha Mercante). Não recuperável. Incide sobre o frete internacional que o importador paga — se o exportador paga o frete (CIF, CFR, DDP), não há AFRMM para o importador.
+  </div></div>
+  <div class="t-card"><div class="t-head"><span class="t-tag">ICM</span>ICMS Importação — por dentro, por UF</div><div class="t-body">
+    <strong>Fórmula por dentro (ICMS integra sua própria base):</strong><br>
+    Base ICMS = (VA×câmbio + II + IPI + PIS/COF + AFRMM + Siscomex + outras despesas) ÷ (1 − alíquota)<br>
+    ICMS = Base × alíquota<br><br>
+    <strong>Por que "por dentro"?</strong> Porque o próprio ICMS entra na base de cálculo — diferente do II que é "por fora".<br><br>
+    <strong>Alíquotas por UF:</strong><br>
+    17%: SC · GO · PA · MT · MS · ES<br>
+    18%: SP · MG · RS · PR · CE · PE<br>
+    19%: BA<br>
+    20%: RJ · DF · AM
+  </div></div>
+  <div class="t-card"><div class="t-head"><span class="t-tag">SIS</span>Taxa Siscomex — valores reais</div><div class="t-body">
+    <strong>Por DI/Duimp:</strong> R$ 115,67 (valor fixo por declaração)<br>
+    <strong>Por adição:</strong><br>
+    <ul><li>1ª e 2ª adição: R$ 38,56 cada</li><li>3ª a 7ª adição: R$ 19,28 cada</li><li>8ª adição em diante: R$ 9,64 cada</li></ul>
+    Taxa administrativa pelo uso do Siscomex. Paga em BRL. Uma "adição" corresponde a cada item/NCM diferente na mesma DI.
+  </div></div>
+  <div class="t-card"><div class="t-head"><span class="t-tag">REG</span>Regimes aduaneiros especiais</div><div class="t-body">
+    <ul>
+      <li><strong>Drawback:</strong> suspensão ou isenção de II, IPI, PIS/COF para insumos que serão industrializados e exportados. Modalidades: suspensão, isenção e intermediário.</li>
+      <li><strong>RECOF:</strong> Regime Aduaneiro Especial de Entreposto Industrial — suspensão de tributos para grandes exportadores habilitados pela Receita Federal.</li>
+      <li><strong>REPETRO:</strong> bens destinados à exploração de petróleo e gás — admissão temporária ou importação definitiva com isenção.</li>
+      <li><strong>Admissão Temporária:</strong> suspensão para bens que retornarão ao exterior (máquinas em exposição, por ex.).</li>
+      <li><strong>Ex-tarifário:</strong> redução do II a 0% ou 2% para bens de capital e TI sem similar nacional. Publicado em portarias do MDIC.</li>
+      <li><strong>Entreposto Aduaneiro:</strong> armazenagem com suspensão — só paga tributos quando nacionalizar.</li>
+    </ul>
+  </div></div>
+  <div class="t-card"><div class="t-head"><span class="t-tag">ARM</span>Armazenagem S/C — como calcular</div><div class="t-body">
+    <strong>S/C = "Sobre Câmbio"</strong> — percentual aplicado sobre o valor da mercadoria convertido:<br><br>
+    <strong>Base S/C = (VA × câmbio) + II + IPI</strong><br>
+    ARM1 = % × Base S/C (1º período de armazenagem)<br>
+    ARM2 = % × Base S/C (2º período, geralmente alíquota maior)<br><br>
+    <strong>ATA</strong> = percentual sobre a armazenagem (taxa de armazenagem alfandegada). Ex: ATA 30% × ARM1.<br><br>
+    Os períodos variam por recinto alfandegado — geralmente ARM1 são os primeiros 15 dias, ARM2 do 16º ao 30º dia. Quanto mais tempo a carga fica parada, maior o custo.
+  </div></div>
 </div>
 </div>
 
 <!-- ======= AGENTES ======= -->
 <div class="pg" id="pg-agen">
 <div style="padding:14px">
-  <div class="t-card"><div class="t-head"><span class="t-tag">AG</span>Despachante Aduaneiro</div><div class="t-body">Habilitado pela Receita Federal. Registra a DI/Duimp no Siscomex, classifica por NCM, acompanha o desembaraço e recolhe tributos. Representa o importador perante a aduana.</div></div>
-  <div class="t-card"><div class="t-head"><span class="t-tag">AG</span>Freight Forwarder (Agente de Cargas)</div><div class="t-body">Organiza o transporte internacional. Consolida cargas (LCL), contrata navio/avião, emite BL/AWB, pode oferecer seguro.</div></div>
-  <div class="t-card"><div class="t-head"><span class="t-tag">MOD</span>FCL vs LCL</div><div class="t-body"><strong>FCL (Full Container Load):</strong> container inteiro. Mais barato por kg em grandes volumes.<br><br><strong>LCL (Less than Container Load):</strong> carga fracionada compartilhada. Caro por kg, mas viável para volumes menores. Gera custos de consolidação/desconsolidação.</div></div>
-  <div class="t-card"><div class="t-head"><span class="t-tag">PAG</span>Formas de pagamento</div><div class="t-body"><ul><li><strong>Remessa antecipada:</strong> importador paga antes do embarque — risco alto para o importador</li><li><strong>Cobrança documentária (D/P/D/A):</strong> banco intermediário</li><li><strong>Letter of Credit (L/C):</strong> carta de crédito — mais segura, mais cara</li><li><strong>Conta aberta:</strong> paga após recebimento — risco alto para o exportador</li></ul></div></div>
-  <div class="t-card"><div class="t-head"><span class="t-tag">DOC</span>Documentos principais</div><div class="t-body"><ul><li><strong>Invoice:</strong> fatura comercial — base do VA</li><li><strong>Packing List:</strong> relação de volumes e pesos</li><li><strong>BL / AWB:</strong> conhecimento de embarque marítimo / aéreo</li><li><strong>Certificado de Origem:</strong> preferências tarifárias</li><li><strong>DI / Duimp:</strong> declaração de importação no Siscomex</li><li><strong>LI:</strong> licença de importação para produtos controlados</li></ul></div></div>
+
+  <div class="t-card"><div class="t-head"><span class="t-tag">AG</span>Despachante Aduaneiro</div><div class="t-body">
+    Profissional habilitado pela Receita Federal (RFB) para representar importadores e exportadores perante a aduana.<br><br>
+    <strong>Responsabilidades:</strong><br>
+    <ul><li>Classificar a mercadoria pela NCM (Nomenclatura Comum do Mercosul)</li><li>Registrar a DI (Declaração de Importação) ou Duimp no Siscomex</li><li>Calcular e conferir os tributos devidos</li><li>Acompanhar o canal de parametrização (verde, amarelo, vermelho, cinza)</li><li>Providenciar o licenciamento se necessário (LI)</li><li>Entregar documentos à RFB</li></ul>
+    <strong>Canais de desembaraço:</strong><br>
+    🟢 Verde — liberação automática · 🟡 Amarelo — conferência documental · 🔴 Vermelho — conferência física e documental · ⚫ Cinza — análise de valor aduaneiro (suspeita de subfaturamento)
+  </div></div>
+
+  <div class="t-card"><div class="t-head"><span class="t-tag">AG</span>Freight Forwarder — Agente de Cargas</div><div class="t-body">
+    Intermediário logístico que organiza o transporte internacional. Pode atuar como:<br><br>
+    <ul><li><strong>NVOCC (Non-Vessel Operating Common Carrier):</strong> emite BL próprio sem ter navio</li><li><strong>Consolidador de carga (LCL):</strong> agrupa cargas de vários importadores em um container</li><li><strong>Agente de frete aéreo:</strong> emite AWB e consolida em ULD</li><li>Contrata transportadores, seguradores, despachantes</li><li>Emite documentos: BL, AWB, MBL, HBL</li></ul>
+  </div></div>
+
+  <div class="t-card"><div class="t-head"><span class="t-tag">🚢</span>Tipos de carga marítima</div><div class="t-body">
+    <strong>FCL — Full Container Load:</strong> container inteiro exclusivo. O importador paga pelo container completo independente do volume.<br>
+    ✅ Mais barato por kg em grandes volumes · ✅ Menor risco de avaria · ✅ Menos manuseio<br><br>
+    <strong>LCL — Less than Container Load:</strong> carga fracionada compartilhada entre vários importadores num mesmo container.<br>
+    ✅ Viável para volumes pequenos · ❌ Mais caro por kg · ❌ Mais manuseio = mais risco de avaria · ❌ Gera custos de consolidação (CFS — Container Freight Station) e desconsolidação<br><br>
+    <strong>Break-bulk:</strong> carga não containerizada (peças grandes, bobinas, madeira). Cada volume é embarcado individualmente.<br><br>
+    <strong>Granel sólido:</strong> commodities como soja, milho, minério — sem embalagem, direto no porão.<br><br>
+    <strong>Granel líquido:</strong> petróleo, álcool, ácidos — em tanques especiais.
+  </div></div>
+
+  <div class="t-card"><div class="t-head"><span class="t-tag">✈️</span>Tipos de carga aérea</div><div class="t-body">
+    <strong>LCA — Less than Charter Aircraft:</strong> equivalente aéreo do LCL — carga fracionada que não ocupa um avião inteiro. É o mais comum em importações aéreas.<br><br>
+    <strong>Charter (fretamento):</strong> avião inteiro fretado para uma carga específica. Usado para cargas urgentes de grande volume (vacinas, equipamentos militares, órgãos).<br><br>
+    <strong>ULD (Unit Load Device):</strong> container ou palete padronizado para aviões. Agrupa várias cargas LCA.<br><br>
+    <strong>AWB — Air Waybill:</strong> conhecimento de embarque aéreo. Não negociável (diferente do BL marítimo).<br>
+    <strong>MAWB:</strong> Master AWB — emitido pela companhia aérea.<br>
+    <strong>HAWB:</strong> House AWB — emitido pelo agente de cargas.<br><br>
+    <strong>Comparativo aéreo vs marítimo:</strong><br>
+    ✅ Aéreo: mais rápido (dias vs semanas), menor perda, ideal para urgentes e alto valor<br>
+    ❌ Aéreo: muito mais caro por kg, limite de peso/dimensão, sem AFRMM (vantagem fiscal)
+  </div></div>
+
+  <div class="t-card"><div class="t-head"><span class="t-tag">📄</span>Documentos principais de COMEX</div><div class="t-body">
+    <ul>
+      <li><strong>Invoice (Fatura Comercial):</strong> base do Valor Aduaneiro. Deve conter: vendedor, comprador, descrição, quantidade, preço unitário, total, Incoterm, local e data de entrega.</li>
+      <li><strong>Packing List:</strong> relação detalhada de volumes, pesos bruto e líquido, dimensões. Complementa a Invoice.</li>
+      <li><strong>BL — Bill of Lading:</strong> conhecimento de embarque marítimo. Pode ser negociável (endossável). Representa a posse da carga.</li>
+      <li><strong>AWB — Air Waybill:</strong> conhecimento aéreo. Não negociável — identifica remetente e destinatário fixos.</li>
+      <li><strong>CRT/TRC:</strong> conhecimento de embarque rodoviário internacional.</li>
+      <li><strong>Certificado de Origem:</strong> comprova a origem da mercadoria — necessário para preferências tarifárias (MERCOSUL, acordos bilaterais).</li>
+      <li><strong>DI / Duimp:</strong> Declaração de Importação registrada no Siscomex. A Duimp é o novo modelo (em implantação).</li>
+      <li><strong>LI — Licença de Importação:</strong> exigida para produtos controlados (alimentos, medicamentos, armas, químicos). Antes do embarque ou automática.</li>
+      <li><strong>RD — Registro de Declaração (câmbio):</strong> contrato de câmbio para pagamento ao exterior.</li>
+      <li><strong>CE Mercante:</strong> Conhecimento Eletrônico — registro eletrônico obrigatório para cargas marítimas no Brasil.</li>
+    </ul>
+  </div></div>
+
+  <div class="t-card"><div class="t-head"><span class="t-tag">💳</span>Formas de pagamento internacional</div><div class="t-body">
+    <table class="inc-tbl">
+      <thead><tr><th>Modalidade</th><th>Como funciona</th><th>Risco Importador</th><th>Risco Exportador</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Remessa Antecipada</strong></td><td>Importador paga antes do embarque</td><td><span class="bsm br">Alto</span></td><td><span class="bsm bg2">Baixo</span></td></tr>
+        <tr><td><strong>Cobrança D/P</strong></td><td>Paga contra entrega dos documentos</td><td><span class="bsm bo">Médio</span></td><td><span class="bsm bo">Médio</span></td></tr>
+        <tr><td><strong>Cobrança D/A</strong></td><td>Aceita letra de câmbio — paga depois</td><td><span class="bsm bg2">Baixo</span></td><td><span class="bsm br">Alto</span></td></tr>
+        <tr><td><strong>Letter of Credit (L/C)</strong></td><td>Banco garante pagamento se docs corretos</td><td><span class="bsm bg2">Baixo</span></td><td><span class="bsm bg2">Baixo</span></td></tr>
+        <tr><td><strong>Conta Aberta</strong></td><td>Paga após receber a mercadoria</td><td><span class="bsm bg2">Baixo</span></td><td><span class="bsm br">Alto</span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:10px;font-size:12px">
+      <strong>L/C (Letter of Credit):</strong> a mais segura para ambas as partes. O banco do importador se compromete a pagar o exportador desde que os documentos estejam corretos. Gera custo (IOF, tarifas bancárias) — é o "Banco / L/C" que aparece na calculadora.
+    </div>
+  </div></div>
+
+  <div class="t-card"><div class="t-head"><span class="t-tag">🗺️</span>Zonas e recintos aduaneiros</div><div class="t-body">
+    <strong>Zona Primária:</strong> área de porto, aeroporto ou fronteira sob controle aduaneiro direto. A mercadoria importada fica aqui até o desembaraço.<br><br>
+    <strong>Zona Secundária:</strong> restante do território nacional. Após desembaraçada, a mercadoria circula livremente.<br><br>
+    <strong>Recinto Alfandegado:</strong> armazém ou área habilitada pela RFB para receber cargas sob controle aduaneiro. Cobra armazenagem (ARM1, ARM2, ATA).<br><br>
+    <strong>EADI (Estação Aduaneira do Interior):</strong> "porto seco" — recinto alfandegado no interior do país. Permite transferir a carga do porto para um local mais próximo do importador antes de pagar tributos.<br><br>
+    <strong>ZFM — Zona Franca de Manaus:</strong> área com incentivos fiscais especiais (II, IPI, PIS/COFINS reduzidos). Empresas instaladas lá têm tratamento diferenciado.
+  </div></div>
+
 </div>
 </div>
 
